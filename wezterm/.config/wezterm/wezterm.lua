@@ -2,7 +2,7 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 -- Set colors
-config.color_scheme = 'nord'
+config.color_scheme = 'Catppuccin Frappe'
 
 config.initial_cols = 176
 config.initial_rows = 48

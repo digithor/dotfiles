@@ -16,4 +16,5 @@ opt.smartcase = true
 opt.scrolloff = 3
 opt.cursorline = true
 
+vim.cmd.colorscheme("catppuccin")
 vim.lsp.set_log_level("off") -- LSP logging

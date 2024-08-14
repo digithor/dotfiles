@@ -5,13 +5,20 @@ return {
     event = 'BufEnter'
   },
   {
-    "shaunsingh/nord.nvim",
-    config = function()
-      -- vim.g.nord_disable_background = true
-
-      require("nord").set()
-    end,
+    "catppuccin/nvim",
+    name = "catppuccin",
+    opts = {
+      flavour = "frappe",
+    }
   },
+  -- {
+  --   "shaunsingh/nord.nvim",
+  --   config = function()
+  --     -- vim.g.nord_disable_background = true
+  --
+  --     require("nord").set()
+  --   end,
+  -- },
   {
     "echasnovski/mini.nvim",
     version = "*",
