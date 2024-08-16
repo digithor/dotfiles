@@ -9,6 +9,13 @@ return {
     name = "catppuccin",
     opts = {
       flavour = "frappe",
+      inddent_blankline = {
+        enable = true,
+        colored_indent_levels = false,
+      },
+      mini = {
+        enable = true,
+      },
     }
   },
   -- {
@@ -50,7 +57,11 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require("lualine").setup({})
+      require("lualine").setup {
+        options = {
+          theme = "catppuccin-frappe",
+        },
+      }
     end,
   },
   {
