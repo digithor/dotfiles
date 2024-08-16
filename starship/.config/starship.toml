@@ -11,19 +11,26 @@ $git_branch\
 $git_status\
 [](fg:green bg:teal)\
 $c\
+$lua\
 $rust\
 $golang\
 $nodejs\
+$deno\
+$bun\
 $php\
+$scala\
 $java\
 $kotlin\
 $haskell\
 $python\
+$ruby\
 $terraform\
+$swift\
 [](fg:teal bg:blue)\
 $docker_context\
 $conda\
-[](fg:blue bg:purple)\
+[](fg:blue bg:surface1)\
+[](fg:surface1 bg:purple)\
 $time\
 [ ](fg:purple)\
 $cmd_duration\
@@ -130,8 +137,23 @@ symbol = ""
 style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
+[deno]
+symbol = "🦕"
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[bun]
+symbol = "🥟"
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
 [c]
 symbol = " "
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[lua]
+symbol = ""
 style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
@@ -147,6 +169,11 @@ format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [php]
 symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[scala]
+symbol = ""
 style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
@@ -170,8 +197,18 @@ symbol = ""
 style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
+[ruby]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
 [terraform]
 symbol = "󱁢"
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[swift]
+symbol = ""
 style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
