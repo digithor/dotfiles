@@ -13,8 +13,16 @@ return {
 				enable = true,
 				colored_indent_levels = false,
 			},
-			mini = {
-				enable = true,
+			default_integrations = true,
+			integrations = {
+				cmp = true,
+				gitsigns = true,
+				nvimtree = true,
+				telescope = true,
+				treesitter = true,
+				mini = {
+					enabled = true,
+				},
 			},
 		},
 	},
