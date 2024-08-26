@@ -30,6 +30,7 @@ $swift\
 $docker_context\
 $conda\
 [](fg:blue bg:surface1)\
+$aws\
 [](fg:surface1 bg:purple)\
 $time\
 [ ](fg:purple)\
@@ -220,6 +221,11 @@ format = '[[ $symbol( $context) ](fg:base bg:blue)]($style)'
 [conda]
 style = "bg:mantle"
 format = '[[ $symbol( $environment) ](fg:base bg:teal)]($style)'
+
+[aws]
+symbol = "󰸏"
+style = "bg:surface1"
+format = '[[ $symbol( $profile) ](fg:rosewater bg:surface1)]($style)'
 
 [time]
 disabled = false
