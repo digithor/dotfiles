@@ -1,14 +1,1 @@
 theme = "catppuccin_frappe"
-
-[editor]
-true-color = true
-cursorline = true
-
-[editor.whitespace]
-render = "all"
-
-[editor.indent-guides]
-render = true
-
-[editor.softwrap]
-enable = true
