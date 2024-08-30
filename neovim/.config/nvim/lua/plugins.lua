@@ -1,8 +1,7 @@
 return {
-	"github/copilot.vim",
 	{
-		"Exafunction/codeium.vim",
-		event = "BufEnter",
+		"supermaven-inc/supermaven-nvim",
+		opts = {},
 	},
 	{
 		"catppuccin/nvim",
@@ -51,14 +50,6 @@ return {
 			},
 		},
 	},
-	-- {
-	--   "shaunsingh/nord.nvim",
-	--   config = function()
-	--     -- vim.g.nord_disable_background = true
-	--
-	--     require("nord").set()
-	--   end,
-	-- },
 	{
 		"echasnovski/mini.nvim",
 		version = "*",
