@@ -78,6 +78,16 @@ return {
 		},
 	},
 	{
+		"akinsho/bufferline.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		after = "catppuccin",
+		config = function()
+			require("bufferline").setup({
+				highlights = require("catppuccin.groups.integrations.bufferline").get(),
+			})
+		end,
+	},
+	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
@@ -220,6 +230,11 @@ return {
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
+		opts = {},
+	},
+	{
+		"folke/persistence.nvim",
+		event = "BufReadPre",
 		opts = {},
 	},
 }
