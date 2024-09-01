@@ -183,7 +183,7 @@ return {
 		cmd = { "ConformInfo" },
 		opts = {
 			formatters_by_ft = {
-				go = { "gofmt" },
+				go = { "gofmt", "golines" },
 				terraform = { "terraform_fmt" },
 				tf = { "terraform_fmt" },
 				sh = { "shfmt", "shellcheck", "shellharden" },
@@ -193,7 +193,7 @@ return {
 				javascript = { "prettier", "deno_fmt" },
 				typescript = { "prettier", "deno_fmt" },
 				json = { "jq" },
-				python = { "ruff_fix", "ruff_format", "isort" },
+				python = { "ruff_fix", "ruff_format", "ruff_organize_imports", "isort" },
 				kotlin = { "ktlint" },
 				markdown = { "prettier" },
 				ruby = { "rubyfmt" },
