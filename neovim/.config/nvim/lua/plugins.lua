@@ -142,7 +142,6 @@ return {
 			lspconfig.yamlls.setup({})
 			lspconfig.ansiblels.setup({})
 			lspconfig.denols.setup({})
-			lspconfig.lua_ls.setup({})
 			lspconfig.kotlin_language_server.setup({})
 			lspconfig.jdtls.setup({})
 			lspconfig.solargraph.setup({})
