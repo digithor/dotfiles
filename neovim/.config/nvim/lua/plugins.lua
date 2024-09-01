@@ -8,7 +8,7 @@ return {
 		name = "catppuccin",
 		opts = {
 			flavour = "frappe",
-			default_integrations = true,
+			-- default_integrations = true,
 			integrations = {
 				cmp = true,
 				gitsigns = true,
