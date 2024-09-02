@@ -236,4 +236,8 @@ return {
 		event = "BufReadPre",
 		opts = {},
 	},
+	{
+		"mcauley-penney/visual-whitespace.nvim",
+		config = true,
+	},
 }
