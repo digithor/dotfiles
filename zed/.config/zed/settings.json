@@ -29,6 +29,11 @@
     "file_icons": true,
     "git_status": true
   },
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware",
+    "background_coloring": "indent_aware"
+  },
   "terminal": {
     "copy_on_select": true
   },
