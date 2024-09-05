@@ -77,6 +77,16 @@
           "arguments": ["."]
         }
       }
+    },
+    "Terraform": {
+      "language_servers": ["terraform-ls"],
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "terraform",
+          "arguments": ["fmt", "-"]
+        }
+      }
     }
   }
 }
