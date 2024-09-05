@@ -146,7 +146,7 @@ return {
 			lspconfig.jdtls.setup({})
 			lspconfig.solargraph.setup({})
 			lspconfig.metals.setup({})
-			lspconfig.tsserver.setup({})
+			lspconfig.ts_ls.setup({})
 			lspconfig.tflint.setup({})
 			lspconfig.tailwindcss.setup({})
 			lspconfig.bashls.setup({})
