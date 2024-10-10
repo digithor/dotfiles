@@ -143,7 +143,6 @@ return {
 			lspconfig.kotlin_language_server.setup({})
 			lspconfig.jdtls.setup({})
 			lspconfig.solargraph.setup({})
-			lspconfig.metals.setup({})
 			lspconfig.ts_ls.setup({})
 			lspconfig.tflint.setup({})
 			lspconfig.tailwindcss.setup({})
@@ -196,7 +195,6 @@ return {
 				markdown = { "prettier" },
 				ruby = { "rubyfmt" },
 				html = { "prettier" },
-				scala = { "scalafmt" },
 				java = { "google-java-format" },
 			},
 			default_format_opts = {
