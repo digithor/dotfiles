@@ -136,7 +136,6 @@ return {
 			lspconfig.gopls.setup({})
 			lspconfig.pyright.setup({})
 			lspconfig.ruff.setup({})
-			lspconfig.ruff_lsp.setup({})
 			lspconfig.yamlls.setup({})
 			lspconfig.ansiblels.setup({})
 			lspconfig.denols.setup({})
