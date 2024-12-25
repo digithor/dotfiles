@@ -7,6 +7,9 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "auto_update_extensions": {
+    "harper": false
+  },
   "assistant": {
     "default_model": {
       "provider": "zed.dev",
@@ -15,7 +18,7 @@
     "version": "2"
   },
   "features": {
-    "inline_completion_provider": "supermaven"
+    "inline_completion_provider": "copilot"
   },
   "vim_mode": true,
   "relative_line_numbers": true,
