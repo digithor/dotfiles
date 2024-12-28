@@ -1,6 +1,7 @@
 theme = catppuccin-frappe
 font-family = "JetBrainsMono Nerd Font Mono"
 window-padding-x = 10
+window-padding-y = 10
 window-width = 168
 window-height = 48
 copy-on-select = true
