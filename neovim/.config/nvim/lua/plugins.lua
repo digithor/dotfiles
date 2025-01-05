@@ -1,7 +1,6 @@
 return {
 	{
-		"supermaven-inc/supermaven-nvim",
-		opts = {},
+		"github/copilot.vim",
 	},
 	{
 		"catppuccin/nvim",
