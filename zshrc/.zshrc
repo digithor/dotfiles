@@ -29,9 +29,21 @@ zinit for \
 
 export CUSTOM_ZSH_CONFIG="$HOME/.config/zsh/custom"
 
+# Load custom env by OS
+case "$(uname)" in
+    Darwin)
+        zinit ice wait lucid
+        zinit snippet "$CUSTOM_ZSH_CONFIG/macos-env.zsh"
+        ;;
+    Linux)
+        zinit ice wait lucid
+        zinit snippet "$CUSTOM_ZSH_CONFIG/linux-env.zsh"
+        ;;
+esac
+
 # Load custom env
 zinit ice wait lucid
-zinit snippet "$CUSTOM_ZSH_CONFIG/macos-env.zsh"
+zinit snippet "$CUSTOM_ZSH_CONFIG/env.zsh"
 
 # Function to setup zinit completions directory
 setup_zinit_completions() {
