@@ -1,7 +1,5 @@
 export HOMEBREW_PREFIX_CURL="$(brew --prefix curl)"
 
-eval "$(zoxide init --cmd cd zsh)"
-
 export PATH="$HOMEBREW_PREFIX_CURL/bin:$PATH"
 export PATH="$(brew --prefix ruby)/bin:$PATH"
 export PATH="$(brew --prefix python)/libexec/bin:$PATH"
