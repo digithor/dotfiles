@@ -99,6 +99,7 @@ zinit wait lucid for \
     OMZP::k9s \
     OMZP::helm \
     OMZP::kubectx \
+    OMZP::minikube \
     OMZP::fluxcd \
     OMZP::rust \
     OMZP::python \
