@@ -20,9 +20,7 @@ zinit for \
     OMZL::completion.zsh \
     OMZL::directories.zsh \
     OMZL::clipboard.zsh \
-    OMZL::async_prompt.zsh \
     OMZL::grep.zsh \
-    OMZL::spectrum.zsh \
     OMZL::theme-and-appearance.zsh \
     OMZP::brew \
     OMZP::starship
