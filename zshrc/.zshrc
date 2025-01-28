@@ -36,6 +36,9 @@ case "$(uname)" in
         zinit snippet "$CUSTOM_ZSH_CONFIG/macos-env.zsh"
         ;;
     Linux)
+        zinit for \
+            OMZP::starship
+
         zinit ice wait lucid
         zinit snippet "$CUSTOM_ZSH_CONFIG/linux-env.zsh"
         ;;
