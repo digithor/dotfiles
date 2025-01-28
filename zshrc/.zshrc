@@ -21,15 +21,17 @@ zinit for \
     OMZL::directories.zsh \
     OMZL::clipboard.zsh \
     OMZL::grep.zsh \
-    OMZL::theme-and-appearance.zsh \
-    OMZP::brew \
-    OMZP::starship
+    OMZL::theme-and-appearance.zsh
 
 export CUSTOM_ZSH_CONFIG="$HOME/.config/zsh/custom"
 
 # Load custom env by OS
 case "$(uname)" in
     Darwin)
+        zinit for \
+            OMZP::brew \
+            OMZP::starship
+
         zinit ice wait lucid
         zinit snippet "$CUSTOM_ZSH_CONFIG/macos-env.zsh"
         ;;
