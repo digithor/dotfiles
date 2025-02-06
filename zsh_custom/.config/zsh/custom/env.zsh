@@ -9,4 +9,6 @@ export FZF_DEFAULT_OPTS=" \
 --color=selected-bg:#51576d \
 --multi"
 
-export PATH="$(uv tool dir --bin):$PATH"
+if (($ + command[uv])); then
+    export PATH="$(uv tool dir --bin):$PATH"
+fi
