@@ -13,3 +13,5 @@ function Linemode:size_and_mtime()
 end
 
 require("git"):setup()
+require("starship"):setup()
+require("full-border"):setup()

@@ -12,3 +12,9 @@ run = "plugin mount"
 on = ["c", "m"]
 run = "plugin chmod"
 desc = "Chmod on selected files"
+
+# Lazygit plugin
+[[manager.prepend_keymap]]
+on = ["g", "i"]
+run = "plugin lazygit"
+desc = "run lazygit"
