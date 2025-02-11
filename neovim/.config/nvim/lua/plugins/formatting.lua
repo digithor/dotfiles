@@ -10,6 +10,7 @@ return {
             sh = { "shfmt", "shellcheck", "shellharden" },
             yaml = { "yamlfmt" },
             rust = { "rustfmt" },
+            toml = { "taplo" },
             lua = { "stylua" },
             javascript = { "prettier", "deno_fmt" },
             typescript = { "prettier", "deno_fmt" },
