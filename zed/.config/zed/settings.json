@@ -95,6 +95,15 @@
           "arguments": ["fmt", "-"]
         }
       }
+    },
+    "TOML": {
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "taplo",
+          "arguments": ["format", "-"]
+        }
+      }
     }
   }
 }
