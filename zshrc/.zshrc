@@ -112,6 +112,7 @@ zinit wait lucid for \
     OMZP::gem \
     OMZP::deno \
     OMZP::bun \
+    OMZP::asdf \
     OMZP::1password \
     OMZP::web-search \
     OMZP::command-not-found \
