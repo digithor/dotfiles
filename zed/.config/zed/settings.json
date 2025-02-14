@@ -18,7 +18,7 @@
     "version": "2"
   },
   "features": {
-    "inline_completion_provider": "copilot"
+    "edit_prediction_provider": "zed"
   },
   "vim_mode": true,
   "relative_line_numbers": true,
