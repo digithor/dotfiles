@@ -5,3 +5,4 @@ window-padding-y = 8
 window-width = 168
 window-height = 48
 copy-on-select = clipboard
+cursor-invert-fg-bg = true
