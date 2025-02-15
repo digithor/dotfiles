@@ -16,6 +16,8 @@ opt.splitright = true
 opt.smartcase = true
 opt.scrolloff = 3
 opt.cursorline = true
+opt.guicursor =
+	"n-v-c:block-blinkwait700-blinkon400-blinkoff250,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250"
 
 vim.cmd.colorscheme("catppuccin-frappe")
 vim.lsp.set_log_level("off") -- LSP logging
