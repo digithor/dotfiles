@@ -1,0 +1,20 @@
+views:
+  v1/pods:
+    columns:
+      - NAMESPACE
+      - NAME
+      - READY
+      - STATUS
+      - "%CPU/L"
+      - "%MEM/L"
+      - RESTARTS
+      - CPU
+      - MEM
+      # - PF
+      - AGE
+      - IP
+      - "READINESS GATES"
+      - NODE
+      - "NOMINATED NODE"
+      - "%CPU/R"
+      - "%MEM/R"

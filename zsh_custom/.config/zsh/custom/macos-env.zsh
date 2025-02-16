@@ -22,3 +22,4 @@ export PKG_CONFIG_PATH="$HOMEBREW_PREFIX/opt/curl/lib/pkgconfig"
 
 export GROOVY_HOME="$HOMEBREW_PREFIX/opt/groovy/libexec"
 
+export K9S_CONFIG_DIR="$HOME/.config/k9s"
