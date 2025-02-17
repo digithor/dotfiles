@@ -3,18 +3,7 @@ views:
     columns:
       - NAMESPACE
       - NAME
-      - READY
       - STATUS
-      - "%CPU/L"
-      - "%MEM/L"
+      - READY|R
       - RESTARTS
-      - CPU
-      - MEM
-      # - PF
-      - AGE
-      - IP
-      - "READINESS GATES"
-      - NODE
-      - "NOMINATED NODE"
-      - "%CPU/R"
-      - "%MEM/R"
+      - PF|H
