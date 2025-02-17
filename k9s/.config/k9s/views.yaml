@@ -3,7 +3,7 @@ views:
     columns:
       - NAMESPACE
       - NAME
-      - STATUS
       - READY|R
+      - STATUS
       - RESTARTS
       - PF|H
