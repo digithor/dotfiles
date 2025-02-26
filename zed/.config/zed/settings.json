@@ -20,6 +20,17 @@
   "features": {
     "edit_prediction_provider": "zed"
   },
+  "edit_predictions": {
+    "disabled_globs": [
+      "**/.env*",
+      "**/*.pem",
+      "**/*.key",
+      "**/*.cert",
+      "**/*.crt",
+      "**/*.log",
+      "**/secrets.yml"
+    ]
+  },
   "vim_mode": true,
   "relative_line_numbers": true,
   "buffer_font_family": "JetBrainsMono Nerd Font Mono",
