@@ -42,6 +42,7 @@ return {
 			lspconfig.tailwindcss.setup({})
 			lspconfig.bashls.setup({})
 			lspconfig.eslint.setup({})
+			lspconfig.harper_ls.setup({})
 		end,
 	},
 }
