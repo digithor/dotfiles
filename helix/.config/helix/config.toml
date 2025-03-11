@@ -21,8 +21,6 @@ render = "all"
 enable = true
 
 [editor.statusline]
-left = ["mode", "spinner"]
-center = ["file-name"]
 right = [
   "diagnostics",
   "selections",
