@@ -17,6 +17,9 @@ render = true
 [editor.whitespace]
 render = "all"
 
+[editor.soft-wrap]
+enable = true
+
 [editor.statusline]
 left = ["mode", "spinner"]
 center = ["file-name"]
