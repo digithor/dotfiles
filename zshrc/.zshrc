@@ -8,9 +8,13 @@ source "${ZINIT_HOME}/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-export EDITOR="nvim"
+if (($ + commands[hx])); then
+    export EDITOR="hx"
+elif (($ + commands[nvim])); then
+    export EDITOR="nvim"
+fi
+
 export VISUAL="$EDITOR"
-alias vi=nvim
 
 # Load OMZ core library
 zinit for \
