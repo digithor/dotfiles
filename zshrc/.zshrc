@@ -12,6 +12,8 @@ if (($ + commands[hx])); then
     export EDITOR="hx"
 elif (($ + commands[nvim])); then
     export EDITOR="nvim"
+else
+    export EDITOR="vi"
 fi
 
 export VISUAL="$EDITOR"
