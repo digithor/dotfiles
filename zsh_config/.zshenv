@@ -1,10 +1,4 @@
-if [[ -v commands[hx] ]]; then
-    export EDITOR="hx"
-elif [[ -v commands[nvim] ]]; then
-    export EDITOR="nvim"
-else
-    export EDITOR="vi"
-fi
+export EDITOR="hx"
 export VISUAL="$EDITOR"
 
 export FZF_DEFAULT_OPTS=" \
