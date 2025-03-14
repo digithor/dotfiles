@@ -8,16 +8,6 @@ source "${ZINIT_HOME}/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-if (( $+commands[hx] )); then
-    export EDITOR="hx"
-elif (( $+commands[nvim] )); then
-    export EDITOR="nvim"
-else
-    export EDITOR="vi"
-fi
-
-export VISUAL="$EDITOR"
-
 # Load OMZ core library
 zinit for \
     OMZL::git.zsh \
@@ -29,24 +19,16 @@ zinit for \
     OMZL::grep.zsh \
     OMZL::theme-and-appearance.zsh
 
-export CUSTOM_ZSH_CONFIG="$HOME/.config/zsh/custom"
-
 # Load custom env by OS
 case "$(uname)" in
     Darwin)
         zinit for \
             OMZP::brew \
             OMZP::starship
-
-        zinit ice wait lucid
-        zinit snippet "$CUSTOM_ZSH_CONFIG/macos-env.zsh"
         ;;
     Linux)
         zinit for \
             OMZP::starship
-
-        zinit ice wait lucid
-        zinit snippet "$CUSTOM_ZSH_CONFIG/linux-env.zsh"
         ;;
 esac
 
