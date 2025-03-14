@@ -17,20 +17,9 @@ zinit for \
     OMZL::directories.zsh \
     OMZL::clipboard.zsh \
     OMZL::grep.zsh \
-    OMZL::theme-and-appearance.zsh
-
-# Load custom env by OS
-case "$(uname)" in
-    Darwin)
-        zinit for \
-            OMZP::brew \
-            OMZP::starship
-        ;;
-    Linux)
-        zinit for \
-            OMZP::starship
-        ;;
-esac
+    OMZL::theme-and-appearance.zsh \
+    OMZP::brew \
+    OMZP::starship
 
 # Load custom env
 zinit ice wait lucid
