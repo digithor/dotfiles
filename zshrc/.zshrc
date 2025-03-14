@@ -8,9 +8,9 @@ source "${ZINIT_HOME}/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-if (($ + commands[hx])); then
+if (( $+commands[hx] )); then
     export EDITOR="hx"
-elif (($ + commands[nvim])); then
+elif (( $+commands[nvim] )); then
     export EDITOR="nvim"
 else
     export EDITOR="vi"
