@@ -29,7 +29,8 @@
       "**/*.crt",
       "**/*.log",
       "**/secrets.yml"
-    ]
+    ],
+    "mode": "subtle"
   },
   "vim_mode": true,
   "relative_line_numbers": true,
