@@ -102,12 +102,7 @@ zinit wait lucid as"completion" for \
     OMZP::httpie/_httpie
 
 # Load custom plugins
-zinit ice wait lucid multisrc"stern.plugin.zsh \
-    kafkactl.plugin.zsh \
-    kubectl-argo-rollouts.plugin.zsh \
-    popeye.plugin.zsh \
-    pulumi.plugin.zsh \
-    k8sgpt.plugin.zsh"
+zinit ice wait lucid multisrc"(k8sgpt|kafkactl|kubectl-argo-rollouts|popeye|pulumi|stern).plugin.zsh"
 zinit load "$CUSTOM_ZSH_CONFIG/plugins"
 
 # Add clompletions to fpath
