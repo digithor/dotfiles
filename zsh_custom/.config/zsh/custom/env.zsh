@@ -32,7 +32,4 @@ Darwin)
 
     export GROOVY_HOME="$HOMEBREW_PREFIX/opt/groovy/libexec"
     ;;
-Linux)
-    export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
-    ;;
 esac
