@@ -8,7 +8,7 @@
 // from the command palette or from `Zed` application menu.
 {
   "auto_update_extensions": {
-    "harper": false
+    "harper": true
   },
   "assistant": {
     "default_model": {
