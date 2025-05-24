@@ -1,6 +1,6 @@
 return {
 	"stevearc/conform.nvim",
-	event = "BufWritePre",
+	event = { "BufWritePre" },
 	cmd = { "ConformInfo" },
 	opts = {
 		formatters_by_ft = {
@@ -16,11 +16,9 @@ return {
 			typescript = { "prettier", "deno_fmt" },
 			json = { "jq" },
 			python = { "ruff_fix", "ruff_format", "ruff_organize_imports", "isort" },
-			kotlin = { "ktlint" },
 			markdown = { "prettier" },
 			ruby = { "rubyfmt" },
 			html = { "prettier" },
-			java = { "google-java-format" },
 		},
 		default_format_opts = {
 			lsp_format = "fallback",

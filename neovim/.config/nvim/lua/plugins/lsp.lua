@@ -13,36 +13,45 @@ return {
 			},
 			{ "folke/neodev.nvim", opts = {} },
 		},
-		config = function()
-			local lspconfig = require("lspconfig")
-			lspconfig.lua_ls.setup({})
-			lspconfig.terraformls.setup({})
-			lspconfig.rust_analyzer.setup({})
-			lspconfig.gopls.setup({})
-			lspconfig.pyright.setup({})
-			lspconfig.ruff.setup({})
-			lspconfig.yamlls.setup({
-				settings = {
-					yaml = {
-						schemaStore = {
-							enable = false,
-							url = "",
+		opts = function()
+			local ret = {
+				servers = {
+					lua_ls = {},
+					terraformls = {},
+					rust_analyzer = {},
+					gopls = {},
+					pyright = {},
+					ruff = {},
+					jsonls = {
+						settings = {
+							json = {
+								schemas = require("schemastore").json.schemas(),
+								validate = { enable = true },
+							},
 						},
-						schemas = require("schemastore").json.schemas(),
 					},
+					yamlls = {
+						settings = {
+							yaml = {
+								schemaStore = {
+									enable = false,
+									url = "",
+								},
+								schemas = require("schemastore").json.schemas(),
+							},
+						},
+					},
+					ansiblels = {},
+					denols = {},
+					solargraph = {},
+					ts_ls = {},
+					tflint = {},
+					bashls = {},
+					eslint = {},
+					harper_ls = {},
 				},
-			})
-			lspconfig.ansiblels.setup({})
-			lspconfig.denols.setup({})
-			lspconfig.kotlin_language_server.setup({})
-			lspconfig.jdtls.setup({})
-			lspconfig.solargraph.setup({})
-			lspconfig.ts_ls.setup({})
-			lspconfig.tflint.setup({})
-			lspconfig.tailwindcss.setup({})
-			lspconfig.bashls.setup({})
-			lspconfig.eslint.setup({})
-			lspconfig.harper_ls.setup({})
+			}
+			return ret
 		end,
 	},
 }
