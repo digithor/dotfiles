@@ -49,6 +49,7 @@ return {
 					bashls = {},
 					eslint = {},
 					harper_ls = {},
+					zls = {},
 				},
 			}
 			return ret
