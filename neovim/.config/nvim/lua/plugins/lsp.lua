@@ -13,46 +13,43 @@ return {
 			},
 			{ "folke/neodev.nvim", opts = {} },
 		},
-		opts = function()
-			local ret = {
-				servers = {
-					lua_ls = {},
-					terraformls = {},
-					rust_analyzer = {},
-					gopls = {},
-					pyright = {},
-					ruff = {},
-					jsonls = {
-						settings = {
-							json = {
-								schemas = require("schemastore").json.schemas(),
-								validate = { enable = true },
-							},
-						},
+		config = function()
+			vim.lsp.enable("lua_ls")
+			vim.lsp.enable("terraformls")
+			vim.lsp.enable("rust_analyzer")
+			vim.lsp.enable("gopls")
+			vim.lsp.enable("pyright")
+			vim.lsp.enable("ruff")
+			vim.lsp.enable("jsonls")
+			vim.lsp.config("jsonls", {
+				settings = {
+					json = {
+						schemas = require("schemastore").json.schemas(),
+						validate = { enable = true },
 					},
-					yamlls = {
-						settings = {
-							yaml = {
-								schemaStore = {
-									enable = false,
-									url = "",
-								},
-								schemas = require("schemastore").json.schemas(),
-							},
-						},
-					},
-					ansiblels = {},
-					denols = {},
-					solargraph = {},
-					ts_ls = {},
-					tflint = {},
-					bashls = {},
-					eslint = {},
-					harper_ls = {},
-					zls = {},
 				},
-			}
-			return ret
+			})
+			vim.lsp.enable("yamlls")
+			vim.lsp.config("yamlls", {
+				settings = {
+					yaml = {
+						schemaStore = {
+							enable = false,
+							url = "",
+						},
+						schemas = require("schemastore").json.schemas(),
+					},
+				},
+			})
+			vim.lsp.enable("ansiblels")
+			vim.lsp.enable("denols")
+			vim.lsp.enable("solargraph")
+			vim.lsp.enable("ts_ls")
+			vim.lsp.enable("tflint")
+			vim.lsp.enable("bashls")
+			vim.lsp.enable("eslint")
+			vim.lsp.enable("harper_ls")
+			vim.lsp.enable("zls")
 		end,
 	},
 }
