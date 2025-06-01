@@ -43,6 +43,7 @@ return {
 			})
 			vim.lsp.enable("ansiblels")
 			vim.lsp.enable("denols")
+			vim.lsp.enable("tailwindcss")
 			vim.lsp.enable("solargraph")
 			vim.lsp.enable("ts_ls")
 			vim.lsp.enable("tflint")
