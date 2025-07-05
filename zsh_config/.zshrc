@@ -67,7 +67,6 @@ zinit snippet "$ZINIT_HOME/_zinit"
 # Load OMZ plugins in turbo mode
 zinit wait lucid for \
     OMZP::git \
-    OMZP::gh \
     OMZP::eza \
     OMZP::fzf \
     OMZP::zoxide \
@@ -75,21 +74,13 @@ zinit wait lucid for \
     OMZP::gcloud \
     OMZP::terraform \
     OMZP::ssh \
-    OMZP::podman \
     OMZP::docker \
-    OMZP::kubectl \
-    OMZP::argocd \
-    OMZP::k9s \
-    OMZP::helm \
     OMZP::kubectx \
     OMZP::minikube \
     OMZP::fluxcd \
     OMZP::rust \
     OMZP::python \
-    OMZP::uv \
     OMZP::gem \
-    OMZP::deno \
-    OMZP::bun \
     OMZP::asdf \
     OMZP::1password \
     OMZP::web-search \
@@ -103,7 +94,7 @@ zinit wait lucid as"completion" for \
     OMZP::httpie/_httpie
 
 # Load custom plugins
-zinit ice wait lucid multisrc"(k8sgpt|kafkactl|kubectl-argo-rollouts|popeye|pulumi|stern|tree-sitter).plugin.zsh"
+zinit ice wait lucid multisrc"(k8sgpt|kafkactl|kubectl-argo-rollouts|popeye|pulumi).plugin.zsh"
 zinit load "$CUSTOM_ZSH_CONFIG/plugins"
 
 # Add clompletions to fpath
