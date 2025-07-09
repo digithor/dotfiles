@@ -72,14 +72,11 @@ zinit wait lucid for \
     OMZP::zoxide \
     OMZP::aws \
     OMZP::gcloud \
-    OMZP::terraform \
     OMZP::ssh \
     OMZP::docker \
-    OMZP::kubectx \
     OMZP::minikube \
     OMZP::fluxcd \
     OMZP::rust \
-    OMZP::python \
     OMZP::gem \
     OMZP::asdf \
     OMZP::1password \
