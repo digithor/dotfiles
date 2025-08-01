@@ -5,3 +5,5 @@ lazyvim.json
 k9s/.config/k9s/benchmarks/
 k9s/.config/k9s/clusters/
 k9s/.config/k9s/screen-dumps/
+yazi/.config/yazi/flavors/
+yazi/.config/yazi/plugins/
