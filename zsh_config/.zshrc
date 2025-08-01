@@ -80,6 +80,7 @@ zinit wait lucid for \
     OMZP::gem \
     OMZP::asdf \
     OMZP::1password \
+    OMZP::tailscale \
     OMZP::web-search \
     OMZP::command-not-found \
     OMZP::colored-man-pages
