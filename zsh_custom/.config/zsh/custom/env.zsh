@@ -31,5 +31,7 @@ Darwin)
     export PKG_CONFIG_PATH="$HOMEBREW_PREFIX/opt/curl/lib/pkgconfig"
 
     export GROOVY_HOME="$HOMEBREW_PREFIX/opt/groovy/libexec"
+
+    export PATH="$HOMEBREW_PREFIX/opt/rustup/bin:$PATH"
     ;;
 esac
