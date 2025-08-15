@@ -32,6 +32,6 @@ Darwin)
 
     export GROOVY_HOME="$HOMEBREW_PREFIX/opt/groovy/libexec"
 
-    export PATH="$HOMEBREW_PREFIX/opt/rustup/bin:$PATH"
+    export PATH="$HOME/.cargo/bin:$HOMEBREW_PREFIX/opt/rustup/bin:$PATH"
     ;;
 esac

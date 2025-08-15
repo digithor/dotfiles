@@ -11,3 +11,4 @@ export FZF_DEFAULT_OPTS=" \
 export K9S_CONFIG_DIR="$HOME/.config/k9s"
 
 export CUSTOM_ZSH_CONFIG="$HOME/.config/zsh/custom"
+. "$HOME/.cargo/env"
