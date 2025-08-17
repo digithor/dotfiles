@@ -13,7 +13,6 @@ zinit for \
     OMZL::git.zsh \
     OMZL::history.zsh \
     OMZL::key-bindings.zsh \
-    OMZL::completion.zsh \
     OMZL::directories.zsh \
     OMZL::clipboard.zsh \
     OMZL::grep.zsh \
@@ -59,6 +58,8 @@ zinit wait lucid for \
         zsh-users/zsh-history-substring-search \
     blockf atpull'zinit creinstall -q .' \
         zsh-users/zsh-completions
+
+zinit light Aloxaf/fzf-tab
 
 # Load Zinit's completion system
 zinit ice wait lucid as"completion"
