@@ -59,7 +59,11 @@ zinit wait lucid for \
     blockf atpull'zinit creinstall -q .' \
         zsh-users/zsh-completions
 
+# fzf Tab Completion
 zinit light Aloxaf/fzf-tab
+zstyle ':completion:*' menu no
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 
 # Load Zinit's completion system
 zinit ice wait lucid as"completion"
