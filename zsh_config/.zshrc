@@ -83,26 +83,18 @@ zinit load "$CUSTOM_ZSH_CONFIG/plugins"
 # Add clompletions to fpath
 zinit add-fpath "$ZSH_CACHE_DIR/completions"
 
-# Load plugins with turbo mode
-zinit ice lucid blockf atpull'zinit creinstall -q .'
-zinit light zsh-users/zsh-completions
-
-zinit ice lucid atinit"zicompinit; zicdreplay"
-zinit light Aloxaf/fzf-tab
-
 zinit wait lucid for \
-  atload"_zsh_autosuggest_start" zsh-users/zsh-autosuggestions \
-  zdharma-continuum/fast-syntax-highlighting \
-  atload'bindkey "^[[A" history-substring-search-up; \
-         bindkey "^[[B" history-substring-search-down; \
-         bindkey "$terminfo[kcuu1]" history-substring-search-up; \
-         bindkey "$terminfo[kcud1]" history-substring-search-down' \
-    zsh-users/zsh-history-substring-search
-
-# Load plugins from git
-zinit wait lucid for \
+  blockf atpull"zinit creinstall -q ." \
+    zsh-users/zsh-completions \
+  atinit"zicompinit; zicdreplay" \
+    Aloxaf/fzf-tab \
     hlissner/zsh-autopair \
-    MichaelAquilina/zsh-you-should-use
+    MichaelAquilina/zsh-you-should-use \
+    zdharma-continuum/fast-syntax-highlighting
+
+# Key Bindings
+bindkey '\e[A' history-beginning-search-backward
+bindkey '\e[B' history-beginning-search-forward
 
 # History settings
 setopt appendhistory
@@ -137,6 +129,9 @@ zstyle ':fzf-tab:*' single-group color header
 zstyle ':fzf-tab:*' switch-group '<' '>'
 zstyle ':completion:*' special-dirs true
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+
+# See hidden files
+setopt glob_dots
 
 # Yazi configuration
 function y() {
