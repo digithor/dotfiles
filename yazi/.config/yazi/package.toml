@@ -30,5 +30,5 @@ hash = "3996fc74044bc44144b323686f887e1"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-frappe"
-rev = "9cd2ac4"
-hash = "c769a6c541ae74b33a041ae1f00dcb40"
+rev = "4296a38"
+hash = "f9a1b9936072893ab27de5738988b710"
