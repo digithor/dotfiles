@@ -6,6 +6,11 @@ if (($ + command[uv])); then
     export PATH="$(uv tool dir --bin):$PATH"
 fi
 
+if (($ + command[brew])); then
+    HOMEBREW_COMMAND_NOT_FOUND_HANDLER="$(brew --repository)/Library/Homebrew/command-not-found/handler.sh"
+    [[ -f $HOMEBREW_COMMAND_NOT_FOUND_HANDLER ]] && source "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER"
+fi
+
 case "$(uname)" in
 Darwin)
     export PATH="$HOMEBREW_PREFIX/opt/curl/bin:$PATH"
@@ -33,5 +38,10 @@ Darwin)
     export GROOVY_HOME="$HOMEBREW_PREFIX/opt/groovy/libexec"
 
     export PATH="$HOME/.cargo/bin:$HOMEBREW_PREFIX/opt/rustup/bin:$PATH"
+
+    HOMEBREW_COMMAND_NOT_FOUND_HANDLER="$(brew --repository)/Library/Homebrew/command-not-found/handler.sh"
+    if [ -f "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER" ]; then
+        source "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER"
+    fi
     ;;
 esac

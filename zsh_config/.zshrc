@@ -67,7 +67,6 @@ zinit wait lucid for \
     OMZP::1password \
     OMZP::tailscale \
     OMZP::web-search \
-    OMZP::command-not-found \
     OMZP::colored-man-pages
 
 # Load completions
