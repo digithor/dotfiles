@@ -11,6 +11,10 @@ if (($ + command[brew])); then
     [[ -f $HOMEBREW_COMMAND_NOT_FOUND_HANDLER ]] && source "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER"
 fi
 
+if [ -f "$HOME/.local/bin/env" ]; then
+    . "$HOME/.local/bin/env"
+fi
+
 case "$(uname)" in
 Darwin)
     export PATH="$HOMEBREW_PREFIX/opt/curl/bin:$PATH"
