@@ -43,7 +43,8 @@
   "icon_theme": "Catppuccin Frappé",
   "tabs": {
     "file_icons": true,
-    "git_status": true
+    "git_status": true,
+    "close_position": "left"
   },
   "indent_guides": {
     "enabled": true,
