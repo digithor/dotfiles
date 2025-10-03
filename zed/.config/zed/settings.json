@@ -55,6 +55,9 @@
     "show": "auto"
   },
   "terminal": {
+    "scrollbar": {
+      "show": "system"
+    },
     "copy_on_select": true
   },
   "telemetry": {
