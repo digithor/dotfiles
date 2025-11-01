@@ -50,6 +50,7 @@ return {
 			vim.lsp.enable("bashls")
 			vim.lsp.enable("eslint")
 			vim.lsp.enable("harper_ls")
+			vim.lsp.enable("markdown_oxide")
 			vim.lsp.enable("zls")
 		end,
 	},
