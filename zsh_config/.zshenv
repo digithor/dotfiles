@@ -8,7 +8,6 @@ export FZF_DEFAULT_OPTS=" \
 --color=selected-bg:#51576D \
 --color=border:#737994,label:#C6D0F5"
 
-export K9S_CONFIG_DIR="$HOME/.config/k9s"
 export XDG_CONFIG_HOME="$HOME/.config"
 
 export CUSTOM_ZSH_CONFIG="$HOME/.config/zsh/custom"
