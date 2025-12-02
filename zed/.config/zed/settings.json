@@ -9,7 +9,6 @@
 {
   "context_servers": {
     "mcp-server-context7": {
-      "source": "extension",
       "enabled": true,
       "settings": {
         "context7_api_key": ""
@@ -42,7 +41,7 @@
     "mode": "subtle"
   },
   "vim_mode": true,
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "ui_font_size": 16,
   "buffer_font_size": 13,
@@ -107,10 +106,10 @@
       "format_on_save": "on",
       "formatter": [
         {
-          "code_actions": {
-            "source.organizeImports.ruff": true,
-            "source.fixAll.ruff": true
-          }
+          "code_action": "source.organizeImports.ruff"
+        },
+        {
+          "code_action": "source.fixAll.ruff"
         },
         {
           "language_server": {
