@@ -21,7 +21,7 @@
   "agent": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gemini-2.5-pro"
+      "model": "gpt-5-mini"
     },
     "enable_feedback": false
   },
