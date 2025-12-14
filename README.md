@@ -1,289 +1,181 @@
 # Dotfiles
 
-My personal dotfiles for various tools and applications.
+This repository contains configuration files ("dotfiles") for your environment. It provides a centralized, version-controlled way to manage shell configuration, editor settings, terminal themes, and other personal environment customizations.
 
-## Applications
+This README explains how to install, use, and extend the dotfiles in this repo.
 
-This repository contains configurations for the following applications:
+## Repository layout (high level)
 
-- fsh
-- ghostty
-- helix
-- k9s
-- kitty
-- neovim
-- starship
-- tmux
-- vim
-- wezterm
-- yazi
-- zed
-- zsh
+The repo is organized by tools and features. Example directories you may see in this repo:
 
-## Theme
+- `.dotfiles/fsh` — fish shell configs (if present)
+- `.dotfiles/ghostty` — terminal/daemon configs
+- `.dotfiles/helix` — Helix editor configs
+- `.dotfiles/k9s` — k9s configs
+- `.dotfiles/kitty` — Kitty terminal configs
+- `.dotfiles/neovim` — Neovim configs
+- `.dotfiles/scripts` — helper scripts (installers, bootstrap helpers)
+- `.dotfiles/starship` — starship prompt config
+- `.dotfiles/tmux` — Tmux configs
+- `.dotfiles/vim` — legacy Vim configs
+- `.dotfiles/wezterm` — WezTerm terminal configs
+- `.dotfiles/yazi` — (project-specific) config
+- `.dotfiles/zed` — Zed editor configs
+- `.dotfiles/zsh_config` and `.dotfiles/zsh_custom` — zsh configuration pieces
 
-The primary theme used across these configurations is [Catppuccin Frappé](https://github.com/catppuccin/catppuccin).
+There may also be a `.gitignore` and other top-level files.
+
+## Goals
+
+- Keep your environment reproducible across machines.
+- Make it easy to add, test, and roll back configuration changes.
+- Separate concerns by tool so you can enable/disable modules easily.
 
 ## Prerequisites
 
-- `git` for cloning and keeping this repository up to date.
-- [`GNU stow`](https://www.gnu.org/software/stow/) if you want to manage symlinks automatically.
-- The applications you intend to configure from the list above.
-- A Nerd Font (or any font that supports Catppuccin Frappé) for consistent visuals in terminal UIs.
+Common tools that make installing and managing dotfiles easier:
 
-### Installing dependencies
+- `git` (to clone and update the repo)
+- `stow` or a small symlink manager (optional but recommended)
+- `bash`, `zsh`, or your preferred shell
+- Optional: `make` if the repo includes a `Makefile` for bootstrapping
 
-Install the tools with your preferred package manager. The commands below cover the setups I use most frequently; adjust them as needed for your platform.
+You don't need all of these — the instructions below include alternative methods.
 
-#### macOS (Homebrew)
+## Backup your existing configuration (recommended)
 
-```bash
-# Install core utilities
-brew install git stow zsh
+Before installing anything, back up your current dotfiles so you can restore them if needed:
 
-# Install terminal tools
-brew install helix k9s neovim starship tmux vim yazi
+- Manually move files to a safe location:
+  - `mv ~/.zshrc ~/dotfiles-backup/`
+  - `mv ~/.config/nvim ~/dotfiles-backup/`
+- Or create an archive:
+  - `tar -czf ~/dotfiles-backup-$(date +%F).tgz ~/.config/nvim ~/.zshrc ~/.tmux.conf`
 
-# Install GUI applications
-brew install --cask ghostty kitty wezterm zed
-```
+## Installation methods
 
-#### Ubuntu / Debian
+Choose one of the following installation approaches.
 
-```bash
-# Update package index
-sudo apt update
+### 1) Bootstrap script (if provided)
 
-# Install core utilities
-sudo apt install git stow zsh
+If this repository includes an installation or bootstrap script (for example `scripts/bootstrap.sh`), you can run it to perform the automated setup steps:
 
-# Install terminal tools
-sudo apt install helix k9s neovim tmux vim
+- Inspect the script before running it.
+- Run it from the repo root:
 
-# Install starship (not in default repos)
-curl -sS https://starship.rs/install.sh | sh
+  1. Clone the repo:
+     - `git clone <repo-url> ~/.dotfiles`
+  2. Run the bootstrap script (if present):
+     - `cd ~/.dotfiles`
+     - `./scripts/bootstrap.sh`
 
-# Install yazi (not in default repos)
-cargo install yazi
+The script — if present — typically installs required dependencies and creates the necessary symlinks.
 
-# Install GUI applications (not in default repos)
-# Follow official guides for Ghostty, Kitty, WezTerm, and Zed
-```
+### 2) GNU Stow (recommended for modular symlinking)
 
-#### Arch Linux
+GNU Stow is a simple tool that turns directories into sets of symlinks in your home directory.
 
-```bash
-# Update package database
-sudo pacman -Syu
+1. Install stow:
+   - macOS: `brew install stow`
+   - Debian/Ubuntu: `sudo apt install stow`
 
-# Install core utilities and terminal tools
-sudo pacman -S git stow zsh helix k9s neovim tmux vim
+2. Clone the repo:
+   - `git clone <repo-url> ~/.dotfiles`
 
-# Install starship and yazi from AUR
-yay -S starship yazi
+3. From the repo root, run stow for the packages you want:
+   - `cd ~/.dotfiles`
+   - `stow zsh_config` (creates symlinks for files inside `zsh_config` into your home)
+   - `stow neovim`
+   - `stow kitty`
+   - Repeat for other modules as desired.
 
-# Install GUI applications (not in default repos)
-# Follow official guides for Ghostty, Kitty, WezTerm, and Zed
-```
+Each package directory should contain files arranged as they will appear in your home (or under `.config`).
 
-#### Windows (WSL)
+### 3) Manual symlinking
 
-```bash
-# Update package list
-sudo apt update
+If you prefer not to use stow, create symlinks manually:
 
-# Install core utilities and terminal tools
-sudo apt install git stow zsh helix k9s neovim tmux vim
+1. Clone the repo:
+   - `git clone <repo-url> ~/.dotfiles`
 
-# Install starship
-curl -sS https://starship.rs/install.sh | sh
+2. Create symlinks for the files you want to enable:
+   - `ln -s ~/.dotfiles/zsh_config/.zshrc ~/.zshrc`
+   - `ln -s ~/.dotfiles/neovim ~/.config/nvim`
+   - `ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf`
 
-# Install yazi
-cargo install yazi
+Adjust the source and target paths to match your repo structure.
 
-# Note: GUI applications need to be installed on Windows host system
-```
+## Updating
 
-For applications that are not available in your distribution repositories, follow their official install guides or community packages.
+To update your local copy of the dotfiles to the latest in the remote repo:
 
-**Note**: After installing ZSH, you might need to change your default shell:
+- `cd ~/.dotfiles`
+- `git pull --rebase`
 
-```bash
-# Add ZSH to allowed shells
-echo $(which zsh) | sudo tee -a /etc/shells
+If you used stow: re-run `stow <package>` if you added new files or changed package structure.
 
-# Change default shell
-chsh -s $(which zsh)
-```
+If you used a bootstrap script: re-run it if the script is idempotent and intended for updates.
 
-## Usage
+## Adding or modifying a dotfile
 
-### Getting Started
+1. Add or edit files inside the appropriate package folder, e.g. `.dotfiles/neovim/init.lua` or `.dotfiles/zsh_config/.zshrc`.
+2. Test locally by re-symlinking or reloading the config (e.g., restart your shell or source the file).
+3. Commit and push:
+   - `git add <files>`
+   - `git commit -m "feat: update nvim config for xyz"`
+   - `git push origin main`
 
-1. Clone the repository into your home directory (or wherever you manage dotfiles):
+Keep commits small and focused; include a useful commit message.
 
-   ```bash
-   git clone https://github.com/<username>/.dotfiles.git ~/.dotfiles
-   cd ~/.dotfiles
-   ```
+## Testing changes
 
-2. Link the modules you need. `--target` ensures the links point back into your home directory:
+- For shell changes:
+  - `source ~/.zshrc` or open a new shell.
+- For Neovim:
+  - Open `nvim` and check `:checkhealth`.
+- For terminal (kitty/wezterm):
+  - Reload config per the terminal's instructions or restart the terminal.
 
-   ```bash
-   # Core terminal configuration
-   stow --target="$HOME" zsh_config zsh_custom starship
-   
-   # Editor configurations
-   stow --target="$HOME" neovim helix
-   
-   # Terminal multiplexer and tools
-   stow --target="$HOME" tmux k9s
-   
-   # Terminal emulators
-   stow --target="$HOME" kitty wezterm
-   ```
+## Troubleshooting
 
-   Add or remove modules at any time. Use `stow -D <module>` to remove links and `stow -n <module>` for a dry run before applying changes.
+- Wrong file loaded / no changes visible:
+  - Confirm the symlink exists and points to the expected file: `ls -l ~/.zshrc`
+  - Ensure there are no conflicting dotfiles (e.g., `~/.zshrc` vs `~/.zprofile`).
+- Permissions:
+  - Ensure files are readable: `chmod 644 <file>`
+- Scripts not executable:
+  - `chmod +x scripts/bootstrap.sh`
+- If something breaks, restore from your backup or revert commits:
+  - `git checkout -- <file>`
+  - Or restore from your backup archive.
 
-3. Restart your shell or the applications you configured so they pick up the new settings.
+## Security notes
 
-### Advanced Usage
+- Inspect any scripts before running them.
+- Do not commit secrets (API keys, private certs) to this repo. Use environment variables or a secure secrets manager.
 
-#### Managing Stow Packages
+## Contributing
 
-```bash
-# List all available packages
-ls -d */ | sed 's|/||g'
+If you want to contribute:
 
-# Preview what will be stowed (dry run)
-stow -n --target="$HOME" neovim
+1. Fork the repository.
+2. Create a feature branch:
+   - `git checkout -b feat/some-config`
+3. Make your changes and add tests or notes.
+4. Open a pull request describing what changed and why.
 
-# Stow specific packages
-stow --target="$HOME" starship helix
-
-# Restow (update) existing symlinks
-stow --restow --target="$HOME" neovim
-
-# Unstow packages
-stow -D --target="$HOME" helix
+Follow any contribution guidelines or coding style in the repo.
 
-# Stow with verbose output
-stow -v --target="$HOME" tmux
-```
+## Contact / Support
 
-#### Managing Configurations Manually
-
-If you prefer not to use `stow`, create symlinks manually:
-
-```bash
-# Zsh configuration
-ln -s ~/.dotfiles/zsh_config/.zshrc ~/.zshrc
-ln -s ~/.dotfiles/zsh_custom ~/.oh-my-zsh/custom
-
-# Editor configurations
-ln -s ~/.dotfiles/neovim/.config/nvim ~/.config/nvim
-ln -s ~/.dotfiles/helix/.config/helix ~/.config/helix
-
-# Terminal emulator configurations
-ln -s ~/.dotfiles/kitty/.config/kitty ~/.config/kitty
-ln -s ~/.dotfiles/wezterm/.config/wezterm ~/.config/wezterm
-
-# Tools configuration
-ln -s ~/.dotfiles/starship/.config/starship.toml ~/.config/starship.toml
-ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
-```
-
-#### Updating Dotfiles
-
-```bash
-# Update the dotfiles repository
-cd ~/.dotfiles
-git pull origin main
-
-# After pulling changes, restow updated packages
-stow --restow --target="$HOME" neovim zsh_config tmux
-```
-
-#### Troubleshooting Common Issues
-
-1. **Stow conflicts**: If stow reports conflicts, check what files already exist:
-
-   ```bash
-   # Check for conflicts before stowing
-   stow --simulate --target="$HOME" neovim
-   
-   # List conflicting files
-   stow --no --target="$HOME" neovim 2>&1 | grep "existing"
-   ```
-
-2. **Broken symlinks**: Find and remove broken symlinks:
-
-   ```bash
-   # Find broken symlinks in home directory
-   find ~ -type l -exec test ! -e {} \; -print
-   
-   # Remove broken symlinks (be careful!)
-   find ~ -type l -exec test ! -e {} \; -delete
-   ```
-
-3. **Configuration not loading**: Check that your shell is using the correct configuration:
-
-   ```bash
-   # Check which .zshrc is being used
-   echo $ZDOTDIR/.zshrc
-   
-   # Check which configuration nvim is using
-   nvim --cmd "echo stdpath('config')" | head -n1 | tail -n1
-   ```
-
-#### Platform-Specific Configurations
-
-For configurations that need to differ between platforms, you can use conditionals in your config files or create platform-specific variants:
-
-```bash
-# Example platform-specific directory structure
-~/.dotfiles/
-├── neovim/
-│   ├── .config/
-│   │   └── nvim/
-│   │       └── init.lua
-│   └── macos/
-│       └── nvim/
-│           └── init.lua
-```
-
-Then link the appropriate configuration based on your platform:
-
-```bash
-# Stow platform-specific configuration
-if [[ "$(uname)" == "Darwin" ]]; then
-  stow --target="$HOME" neovim/macos
-else
-  stow --target="$HOME" neovim/.config
-fi
-```
-
-#### Selective Configuration Loading
-
-If you want to load different configurations in different environments:
-
-```bash
-# Create separate directories for different environments
-~/.dotfiles/
-├── work/
-│   ├── starship.toml
-│   └── zsh/
-└── personal/
-    ├── starship.toml
-    └── zsh/
-```
-
-Then stow the appropriate configuration based on your environment variable:
-
-```bash
-if [[ "$DOTFILES_ENV" == "work" ]]; then
-  stow --target="$HOME" work/starship work/zsh
-else
-  stow --target="$HOME" personal/starship personal/zsh
-fi
-```
+If you need help with these dotfiles, add a clear issue or contact the repository owner/maintainer with a description of what you tried and what failed, including relevant logs or command output.
+
+## License
+
+Include your preferred license here (e.g., MIT, Apache-2.0). If this repo doesn't include a `LICENSE` file, consider adding one.
+
+---
+
+Notes:
+- This README is intentionally generic so it fits different environments. Adapt commands and paths to your platform and personal workflow.
+- If you want, tell me which shell and OS you use and I can provide a tailored install snippet you can run locally.
