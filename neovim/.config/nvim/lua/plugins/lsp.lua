@@ -18,8 +18,8 @@ return {
 			vim.lsp.enable("terraformls")
 			vim.lsp.enable("rust_analyzer")
 			vim.lsp.enable("gopls")
-			vim.lsp.enable("pyright")
 			vim.lsp.enable("ruff")
+			vim.lsp.enable("ty")
 			vim.lsp.enable("jsonls")
 			vim.lsp.config("jsonls", {
 				settings = {
