@@ -11,22 +11,22 @@
     "mcp-server-context7": {
       "enabled": true,
       "settings": {
-        "context7_api_key": ""
-      }
-    }
+        "context7_api_key": "",
+      },
+    },
   },
   "auto_update_extensions": {
-    "harper": true
+    "harper": true,
   },
   "agent": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-5-mini"
+      "model": "gpt-5-mini",
     },
-    "enable_feedback": false
+    "enable_feedback": false,
   },
   "features": {
-    "edit_prediction_provider": "zed"
+    "edit_prediction_provider": "zed",
   },
   "edit_predictions": {
     "disabled_globs": [
@@ -36,9 +36,9 @@
       "**/*.cert",
       "**/*.crt",
       "**/*.log",
-      "**/secrets.yml"
+      "**/secrets.yml",
     ],
-    "mode": "subtle"
+    "mode": "subtle",
   },
   "vim_mode": true,
   "relative_line_numbers": "enabled",
@@ -52,24 +52,24 @@
   "tabs": {
     "file_icons": true,
     "git_status": true,
-    "close_position": "left"
+    "close_position": "left",
   },
   "indent_guides": {
     "enabled": true,
     "coloring": "indent_aware",
-    "background_coloring": "indent_aware"
+    "background_coloring": "indent_aware",
   },
   "minimap": {
-    "show": "auto"
+    "show": "auto",
   },
   "terminal": {
     "scrollbar": {
-      "show": "system"
+      "show": "system",
     },
-    "copy_on_select": true
+    "copy_on_select": true,
   },
   "telemetry": {
-    "metrics": false
+    "metrics": false,
   },
   "lsp": {
     "gopls": {
@@ -81,54 +81,54 @@
           "constantValues": true,
           "functionTypeParameters": true,
           "parameterNames": true,
-          "rangeVariableTypes": true
-        }
-      }
+          "rangeVariableTypes": true,
+        },
+      },
     },
     "solargraph": {
       "initialization_options": {
         "diagnostics": true,
-        "formatting": true
-      }
+        "formatting": true,
+      },
     },
     "terraform-ls": {
       "initialization_options": {
         "experimentalFeatures": {
           "prefillRequiredFields": true,
-          "validateOnSave": true
-        }
-      }
-    }
+          "validateOnSave": true,
+        },
+      },
+    },
   },
   "languages": {
     "Python": {
-      "language_servers": ["ruff"],
+      "language_servers": ["ty", "ruff"],
       "format_on_save": "on",
       "formatter": [
         {
-          "code_action": "source.organizeImports.ruff"
+          "code_action": "source.organizeImports.ruff",
         },
         {
-          "code_action": "source.fixAll.ruff"
+          "code_action": "source.fixAll.ruff",
         },
         {
           "language_server": {
-            "name": "ruff"
-          }
-        }
-      ]
+            "name": "ruff",
+          },
+        },
+      ],
     },
     "Ruby": {
-      "language_servers": ["solargraph"]
+      "language_servers": ["solargraph"],
     },
     "Lua": {
       "format_on_save": "on",
       "formatter": {
         "external": {
           "command": "stylua",
-          "arguments": ["-"]
-        }
-      }
+          "arguments": ["-"],
+        },
+      },
     },
     "Terraform": {
       "language_servers": ["terraform-ls"],
@@ -136,18 +136,18 @@
       "formatter": {
         "external": {
           "command": "terraform",
-          "arguments": ["fmt", "-"]
-        }
-      }
+          "arguments": ["fmt", "-"],
+        },
+      },
     },
     "TOML": {
       "format_on_save": "on",
       "formatter": {
         "external": {
           "command": "taplo",
-          "arguments": ["format", "-"]
-        }
-      }
-    }
-  }
+          "arguments": ["format", "-"],
+        },
+      },
+    },
+  },
 }
