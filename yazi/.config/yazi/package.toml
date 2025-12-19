@@ -15,8 +15,8 @@ hash = "5b2eb0cc2050cec1e4de83cfa51a5b90"
 
 [[plugin.deps]]
 use = "Lil-Dank/lazygit"
-rev = "8f37dc5"
-hash = "ee71543790f0ce3951161045a3787abd"
+rev = "ea20d05"
+hash = "b95f2d56dd4b2df1be338179a6f1f6c9"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
@@ -30,5 +30,5 @@ hash = "3996fc74044bc44144b323686f887e1"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-frappe"
-rev = "ffe6e3a"
+rev = "5e0e49e"
 hash = "90a866c034553e2d3bfdf536940733df"
