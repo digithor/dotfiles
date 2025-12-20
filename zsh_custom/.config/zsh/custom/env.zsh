@@ -20,7 +20,6 @@ Darwin)
     export PATH="$HOMEBREW_PREFIX/opt/curl/bin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/ruby/bin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/python/libexec/bin:$PATH"
-    export PATH="$PATH:$HOME/Library/Application Support/Coursier/bin"
 
     export PATH="$HOMEBREW_PREFIX/opt/gawk/libexec/gnubin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
