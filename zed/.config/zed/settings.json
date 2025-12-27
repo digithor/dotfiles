@@ -11,7 +11,7 @@
     "context7": {
       "enabled": true,
       "command": "/opt/homebrew/bin/context7-mcp",
-      "args": ["--api-key", ""],
+      "args": ["--api-key", "YOUR_API_KEY"],
     },
   },
   "auto_update_extensions": {
