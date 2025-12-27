@@ -1,46 +1,54 @@
 # Dotfiles
 
-This repository contains configuration files ("dotfiles") for your environment. It provides a centralized, version-controlled way to manage shell configuration, editor settings, terminal themes, and other personal environment customizations.
+Personal configuration files for a consistent development environment across multiple machines.
 
-This README explains how to install, use, and extend the dotfiles in this repo.
+This repository contains version-controlled dotfiles for shell configuration, text editors, terminal emulators, and development tools. All configurations use a consistent Catppuccin Frappe theme where supported.
 
-## Repository layout (high level)
+## Repository layout
 
-The repo is organized by tools and features. Example directories you may see in this repo:
+The repo is organized by tools and features. Each directory contains configuration files that can be symlinked to your home directory or `.config`.
 
-- `.dotfiles/fsh` — fish shell configs (if present)
-- `.dotfiles/ghostty` — terminal/daemon configs
-- `.dotfiles/helix` — Helix editor configs
-- `.dotfiles/k9s` — k9s configs
-- `.dotfiles/kitty` — Kitty terminal configs
-- `.dotfiles/neovim` — Neovim configs
-- `.dotfiles/scripts` — helper scripts (installers, bootstrap helpers)
-- `.dotfiles/starship` — starship prompt config
-- `.dotfiles/tmux` — Tmux configs
-- `.dotfiles/vim` — legacy Vim configs
-- `.dotfiles/wezterm` — WezTerm terminal configs
-- `.dotfiles/yazi` — (project-specific) config
-- `.dotfiles/zed` — Zed editor configs
-- `.dotfiles/zsh_config` and `.dotfiles/zsh_custom` — zsh configuration pieces
-
-There may also be a `.gitignore` and other top-level files.
+- `fsh/` — Fish shell configuration (Catppuccin Frappe theme)
+- `ghostty/` — Ghostty terminal emulator configuration
+- `helix/` — Helix editor configuration and custom themes (Catppuccin Frappe)
+- `k9s/` — Kubernetes cluster manager configuration with custom skins and aliases
+- `kitty/` — Kitty terminal emulator configuration with multiple themes
+- `neovim/` — Neovim configuration with Lua plugins (LSP, AI, formatting, treesitter)
+- `starship/` — Starship cross-shell prompt configuration
+- `tmux/` — Tmux terminal multiplexer configuration
+- `vim/` — Legacy Vim configuration
+- `wezterm/` — WezTerm terminal emulator configuration
+- `yazi/` — Yazi terminal file manager configuration
+- `zed/` — Zed editor settings
+- `zsh_config/` — Core Zsh configuration (.zprofile, .zshrc, .zshenv)
+- `zsh_custom/` — Custom Zsh plugins for Kubernetes tools (k8sgpt, kubectl, pulumi, etc.)
 
 ## Goals
 
-- Keep your environment reproducible across machines.
-- Make it easy to add, test, and roll back configuration changes.
-- Separate concerns by tool so you can enable/disable modules easily.
+- Keep your environment reproducible across machines
+- Make it easy to add, test, and roll back configuration changes
+- Separate concerns by tool so you can enable/disable modules easily
+- Share configurations between multiple systems (macOS, Linux)
+
+## Key features
+
+- **Catppuccin theme** — Consistent dark theme across multiple tools (Neovim, Helix, Kitty, Ghostty, K9s)
+- **Neovim setup** — Lua-based configuration with LSP, AI integration, formatting, and Treesitter
+- **Zsh enhancements** — Custom plugins for Kubernetes tools (kubectl, argo-rollouts, k9s, popeye, kafkactl)
+- **Terminal options** — Multiple terminal emulator configurations (Kitty, WezTerm, Ghostty)
 
 ## Prerequisites
 
-Common tools that make installing and managing dotfiles easier:
+Essential tools for installing and managing these dotfiles:
 
-- `git` (to clone and update the repo)
-- `stow` or a small symlink manager (optional but recommended)
-- `bash`, `zsh`, or your preferred shell
-- Optional: `make` if the repo includes a `Makefile` for bootstrapping
-
-You don't need all of these — the instructions below include alternative methods.
+- `git` — Required to clone and update the repository
+- `stow` — Recommended for managing symlinks (macOS: `brew install stow`, Linux: `sudo apt install stow`)
+- `zsh` — Primary shell (default on macOS)
+- Optional tools for full functionality:
+  - `fish` — If using fish shell configuration
+  - `neovim` — If using Neovim configuration
+  - `tmux` — If using Tmux configuration
+  - Terminal emulators: kitty, wezterm, ghostty (install as needed)
 
 ## Backup your existing configuration (recommended)
 
@@ -71,25 +79,34 @@ If this repository includes an installation or bootstrap script (for example `sc
 
 The script — if present — typically installs required dependencies and creates the necessary symlinks.
 
-### 2) GNU Stow (recommended for modular symlinking)
+### 2) GNU Stow (recommended)
 
-GNU Stow is a simple tool that turns directories into sets of symlinks in your home directory.
+GNU Stow is a simple tool that creates symlinks from package directories to your home directory.
 
 1. Install stow:
-   - macOS: `brew install stow`
-   - Debian/Ubuntu: `sudo apt install stow`
+    - macOS: `brew install stow`
+    - Debian/Ubuntu: `sudo apt install stow`
 
 2. Clone the repo:
-   - `git clone <repo-url> ~/.dotfiles`
+    - `git clone <repo-url> ~/.dotfiles`
 
-3. From the repo root, run stow for the packages you want:
-   - `cd ~/.dotfiles`
-   - `stow zsh_config` (creates symlinks for files inside `zsh_config` into your home)
-   - `stow neovim`
-   - `stow kitty`
-   - Repeat for other modules as desired.
+3. Stow the packages you want:
+    ```bash
+    cd ~/.dotfiles
+    stow zsh_config    # Zsh configuration
+    stow zsh_custom    # Custom Zsh plugins
+    stow starship      # Starship prompt
+    stow neovim        # Neovim configuration
+    stow tmux          # Tmux configuration
+    stow kitty         # Kitty terminal (or use wezterm/ghostty)
+    ```
 
-Each package directory should contain files arranged as they will appear in your home (or under `.config`).
+4. Choose one terminal emulator and stow only that one:
+    - `stow kitty`
+    - `stow wezterm`
+    - `stow ghostty`
+
+Each package directory contains files arranged as they appear in your home directory.
 
 ### 3) Manual symlinking
 
@@ -129,30 +146,67 @@ Keep commits small and focused; include a useful commit message.
 
 ## Testing changes
 
-- For shell changes:
-  - `source ~/.zshrc` or open a new shell.
-- For Neovim:
-  - Open `nvim` and check `:checkhealth`.
-- For terminal (kitty/wezterm):
-  - Reload config per the terminal's instructions or restart the terminal.
+- **Shell changes (Zsh)**:
+  - Reload: `source ~/.zshrc`
+  - Or open new terminal session
+
+- **Neovim**:
+  - Open nvim and run: `:checkhealth`
+  - Check plugin status: `:Lazy`
+  - Test LSP: open a file and run: `:LspInfo`
+
+- **Terminal emulators**:
+  - Kitty: reload config: `Ctrl+Shift+F5` or restart
+  - WezTerm: reload config: `Ctrl+Shift+R`
+  - Ghostty: reload config from menu or restart
+
+- **Tmux**:
+  - Reload: `tmux source-file ~/.tmux.conf`
+  - Or prefix key + `:source-file ~/.tmux.conf`
+
+- **Starship**:
+  - Test prompt: `starship module character`
 
 ## Troubleshooting
 
-- Wrong file loaded / no changes visible:
-  - Confirm the symlink exists and points to the expected file: `ls -l ~/.zshrc`
-  - Ensure there are no conflicting dotfiles (e.g., `~/.zshrc` vs `~/.zprofile`).
-- Permissions:
-  - Ensure files are readable: `chmod 644 <file>`
-- Scripts not executable:
-  - `chmod +x scripts/bootstrap.sh`
-- If something breaks, restore from your backup or revert commits:
-  - `git checkout -- <file>`
-  - Or restore from your backup archive.
+- Configuration changes not visible:
+  - Confirm symlinks exist: `ls -la ~/.zshrc ~/.config/nvim`
+  - Reload shell: `source ~/.zshrc` or open new terminal
+  - Check for conflicting config files in home directory
+
+- Stow conflicts:
+  - If stow fails, existing files may conflict: `stow -n <package>` to preview
+  - Move or remove conflicting files first: `mv ~/.zshrc ~/.zshrc.bak`
+
+- Neovim issues:
+  - Run health check: `nvim --headless +checkhealth +q`
+  - Ensure plugins are installed (if using lazy.nvim, plugins auto-install on first launch)
+
+- Terminal not applying theme:
+  - Verify correct terminal emulator is active
+  - Restart terminal after symlinking config
+  - Check config path is correct in terminal settings
+
+- Starship prompt not showing:
+  - Ensure starship is installed: `which starship`
+  - Verify it's initialized in your shell config
+
+- Restore from backup if needed:
+  - `git checkout -- <file>` to revert specific file
+  - `git reset --hard HEAD` to revert all changes
 
 ## Security notes
 
-- Inspect any scripts before running them.
-- Do not commit secrets (API keys, private certs) to this repo. Use environment variables or a secure secrets manager.
+- **Inspect scripts** before running them, especially any bootstrap or installation scripts
+- **Never commit secrets**:
+  - API keys, tokens, or passwords
+  - SSH keys or certificates
+  - Environment-specific configuration
+- **Use alternatives for secrets**:
+  - Environment variables
+  - Secret management tools (1Password, Bitwarden, etc.)
+  - `.env` files (add to `.gitignore`)
+- **Review commits** before pushing to ensure no sensitive data is included
 
 ## Contributing
 
@@ -176,6 +230,26 @@ Include your preferred license here (e.g., MIT, Apache-2.0). If this repo doesn'
 
 ---
 
-Notes:
-- This README is intentionally generic so it fits different environments. Adapt commands and paths to your platform and personal workflow.
-- If you want, tell me which shell and OS you use and I can provide a tailored install snippet you can run locally.
+## Quick reference
+
+Common tasks:
+
+```bash
+# Update dotfiles
+cd ~/.dotfiles && git pull
+
+# Restow a package (after changes)
+cd ~/.dotfiles && stow -R <package>
+
+# List what symlinks stow would create
+stow -n -v <package>
+
+# Delete a package's symlinks
+stow -D <package>
+```
+
+## Getting help
+
+- Open an issue with details about what you tried and what failed
+- Include your OS, shell, and relevant error messages or logs
+- Check existing issues for similar problems
