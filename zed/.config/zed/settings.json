@@ -8,7 +8,12 @@
 // from the command palette or from `Zed` application menu.
 {
   "context_servers": {
+    "context7": {
+      "enabled": true,
+      "command": "/opt/homebrew/bin/context7-mcp",
+      "args": ["--api-key", ""],
     },
+  },
   "auto_update_extensions": {
     "harper": true,
   },
