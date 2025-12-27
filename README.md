@@ -14,12 +14,13 @@ The repo is organized by tools and features. Each directory contains configurati
 - `k9s/` — Kubernetes cluster manager configuration with custom skins and aliases
 - `kitty/` — Kitty terminal emulator configuration with multiple themes
 - `neovim/` — Neovim configuration with Lua plugins (LSP, AI, formatting, treesitter)
+- `opencode/` — OpenCode editor configuration with MCP server integration (Context7)
 - `starship/` — Starship cross-shell prompt configuration
 - `tmux/` — Tmux terminal multiplexer configuration
 - `vim/` — Legacy Vim configuration
 - `wezterm/` — WezTerm terminal emulator configuration
 - `yazi/` — Yazi terminal file manager configuration
-- `zed/` — Zed editor settings
+- `zed/` — Zed editor configuration with LSP settings, vim mode, and AI agent (Catppuccin Frappe theme)
 - `zsh_config/` — Core Zsh configuration (.zprofile, .zshrc, .zshenv)
 - `zsh_custom/` — Custom Zsh plugins for Kubernetes tools (k8sgpt, kubectl, pulumi, etc.)
 
@@ -32,10 +33,13 @@ The repo is organized by tools and features. Each directory contains configurati
 
 ## Key features
 
-- **Catppuccin theme** — Consistent dark theme across multiple tools (Neovim, Helix, Kitty, Ghostty, K9s)
-- **Neovim setup** — Lua-based configuration with LSP, AI integration, formatting, and Treesitter
+- **Catppuccin Frappe theme** — Consistent dark theme across multiple tools (Neovim, Helix, Kitty, Ghostty, K9s, Zed)
+- **Modern editors** — Configurations for Neovim (Lua-based with LSP), Zed (with AI agent), Helix, and OpenCode
+- **LSP and formatting** — Language server configurations for Python, Go, Ruby, Terraform, Lua, and more
+- **AI integration** — MCP (Model Context Protocol) server support in OpenCode and Zed, AI agent in Zed with Ollama
 - **Zsh enhancements** — Custom plugins for Kubernetes tools (kubectl, argo-rollouts, k9s, popeye, kafkactl)
 - **Terminal options** — Multiple terminal emulator configurations (Kitty, WezTerm, Ghostty)
+- **Vim mode** — Available in Zed and other editors for consistent keybindings
 
 ## Prerequisites
 
@@ -48,7 +52,10 @@ Essential tools for installing and managing these dotfiles:
   - `fish` — If using fish shell configuration
   - `neovim` — If using Neovim configuration
   - `tmux` — If using Tmux configuration
-  - Terminal emulators: kitty, wezterm, ghostty (install as needed)
+  - Terminal emulators: `kitty`, `wezterm`, `ghostty` (install as needed)
+  - Editors: `zed`, `opencode`, `helix` (install as needed)
+  - File manager: `yazi` (terminal-based file manager)
+  - Prompt: `starship` (cross-shell prompt)
 
 ## Backup your existing configuration (recommended)
 
@@ -64,22 +71,7 @@ Before installing anything, back up your current dotfiles so you can restore the
 
 Choose one of the following installation approaches.
 
-### 1) Bootstrap script (if provided)
-
-If this repository includes an installation or bootstrap script (for example `scripts/bootstrap.sh`), you can run it to perform the automated setup steps:
-
-- Inspect the script before running it.
-- Run it from the repo root:
-
-  1. Clone the repo:
-     - `git clone <repo-url> ~/.dotfiles`
-  2. Run the bootstrap script (if present):
-     - `cd ~/.dotfiles`
-     - `./scripts/bootstrap.sh`
-
-The script — if present — typically installs required dependencies and creates the necessary symlinks.
-
-### 2) GNU Stow (recommended)
+### 1) GNU Stow (recommended)
 
 GNU Stow is a simple tool that creates symlinks from package directories to your home directory.
 
@@ -93,22 +85,36 @@ GNU Stow is a simple tool that creates symlinks from package directories to your
 3. Stow the packages you want:
     ```bash
     cd ~/.dotfiles
+    
+    # Core shell configuration
     stow zsh_config    # Zsh configuration
     stow zsh_custom    # Custom Zsh plugins
     stow starship      # Starship prompt
+    
+    # Editors (choose one or more)
     stow neovim        # Neovim configuration
+    stow zed           # Zed editor
+    stow helix         # Helix editor
+    stow opencode      # OpenCode editor
+    stow vim           # Legacy Vim
+    
+    # Terminal multiplexer
     stow tmux          # Tmux configuration
-    stow kitty         # Kitty terminal (or use wezterm/ghostty)
+    
+    # Terminal emulators (choose one)
+    stow kitty         # Kitty terminal
+    stow wezterm       # WezTerm terminal
+    stow ghostty       # Ghostty terminal
+    
+    # Additional tools
+    stow yazi          # Yazi file manager
+    stow k9s           # Kubernetes cluster manager
+    stow fsh           # Fish shell (if using fish)
     ```
-
-4. Choose one terminal emulator and stow only that one:
-    - `stow kitty`
-    - `stow wezterm`
-    - `stow ghostty`
 
 Each package directory contains files arranged as they appear in your home directory.
 
-### 3) Manual symlinking
+### 2) Manual symlinking
 
 If you prefer not to use stow, create symlinks manually:
 
@@ -116,9 +122,24 @@ If you prefer not to use stow, create symlinks manually:
    - `git clone <repo-url> ~/.dotfiles`
 
 2. Create symlinks for the files you want to enable:
-   - `ln -s ~/.dotfiles/zsh_config/.zshrc ~/.zshrc`
-   - `ln -s ~/.dotfiles/neovim ~/.config/nvim`
-   - `ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf`
+   ```bash
+   # Shell configuration
+   ln -s ~/.dotfiles/zsh_config/.zshrc ~/.zshrc
+   ln -s ~/.dotfiles/zsh_config/.zshenv ~/.zshenv
+   ln -s ~/.dotfiles/zsh_config/.zprofile ~/.zprofile
+   
+   # Editors
+   ln -s ~/.dotfiles/neovim/.config/nvim ~/.config/nvim
+   ln -s ~/.dotfiles/zed/.config/zed ~/.config/zed
+   ln -s ~/.dotfiles/helix/.config/helix ~/.config/helix
+   ln -s ~/.dotfiles/opencode/.config/opencode ~/.config/opencode
+   
+   # Terminal and tools
+   ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
+   ln -s ~/.dotfiles/kitty/.config/kitty ~/.config/kitty
+   ln -s ~/.dotfiles/starship/.config/starship.toml ~/.config/starship.toml
+   ln -s ~/.dotfiles/yazi/.config/yazi ~/.config/yazi
+   ```
 
 Adjust the source and target paths to match your repo structure.
 
@@ -126,12 +147,19 @@ Adjust the source and target paths to match your repo structure.
 
 To update your local copy of the dotfiles to the latest in the remote repo:
 
-- `cd ~/.dotfiles`
-- `git pull --rebase`
+```bash
+cd ~/.dotfiles
+git pull --rebase
+```
 
-If you used stow: re-run `stow <package>` if you added new files or changed package structure.
+If you used stow and new files were added or the package structure changed:
+```bash
+# Re-stow specific packages
+stow -R <package>
 
-If you used a bootstrap script: re-run it if the script is idempotent and intended for updates.
+# Or restow all packages at once
+stow -R */
+```
 
 ## Adding or modifying a dotfile
 
@@ -155,6 +183,11 @@ Keep commits small and focused; include a useful commit message.
   - Check plugin status: `:Lazy`
   - Test LSP: open a file and run: `:LspInfo`
 
+- **Zed**:
+  - Settings update automatically on save
+  - Check language server status: `Cmd+Shift+P` → "lsp: status"
+  - Test AI agent: `Cmd+Shift+P` → "assistant: toggle focus"
+
 - **Terminal emulators**:
   - Kitty: reload config: `Ctrl+Shift+F5` or restart
   - WezTerm: reload config: `Ctrl+Shift+R`
@@ -166,6 +199,10 @@ Keep commits small and focused; include a useful commit message.
 
 - **Starship**:
   - Test prompt: `starship module character`
+  - Reload shell: `exec zsh` or open new terminal
+
+- **Yazi**:
+  - Test configuration: launch `yazi` and navigate
 
 ## Troubleshooting
 
@@ -181,6 +218,12 @@ Keep commits small and focused; include a useful commit message.
 - Neovim issues:
   - Run health check: `nvim --headless +checkhealth +q`
   - Ensure plugins are installed (if using lazy.nvim, plugins auto-install on first launch)
+  - Clear cache if needed: `rm -rf ~/.local/share/nvim`
+
+- Zed issues:
+  - Check language server logs: `Cmd+Shift+P` → "zed: open log"
+  - Verify MCP server: ensure Context7 API key is set in settings
+  - Reset Zed settings: backup then remove `~/.config/zed`
 
 - Terminal not applying theme:
   - Verify correct terminal emulator is active
@@ -236,16 +279,30 @@ Common tasks:
 
 ```bash
 # Update dotfiles
-cd ~/.dotfiles && git pull
+cd ~/.dotfiles && git pull --rebase
+
+# Stow a package
+cd ~/.dotfiles && stow <package>
 
 # Restow a package (after changes)
 cd ~/.dotfiles && stow -R <package>
 
-# List what symlinks stow would create
-stow -n -v <package>
+# Restow all packages at once
+cd ~/.dotfiles && stow -R */
+
+# List what symlinks stow would create (dry run)
+cd ~/.dotfiles && stow -n -v <package>
 
 # Delete a package's symlinks
-stow -D <package>
+cd ~/.dotfiles && stow -D <package>
+
+# Verify symlinks
+ls -la ~/.zshrc ~/.config/nvim ~/.config/zed
+
+# Reload shell configuration
+source ~/.zshrc
+# or
+exec zsh
 ```
 
 ## Getting help
