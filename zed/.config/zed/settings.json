@@ -10,8 +10,13 @@
   "context_servers": {
     "context7": {
       "enabled": true,
-      "command": "/opt/homebrew/bin/context7-mcp",
-      "args": ["--api-key", "YOUR_API_KEY"],
+      "command": "bunx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp@latest",
+        "--api-key",
+        "YOUR_API_KEY",
+      ],
     },
   },
   "auto_update_extensions": {
