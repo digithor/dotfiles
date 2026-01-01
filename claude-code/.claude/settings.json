@@ -51,6 +51,9 @@
       "Bash(ansible-playbook --list-hosts:*)",
       "Bash(ansible-lint:*)",
       "Bash(ansible-playbook --syntax-check:*)",
+      "Bash(ansible-galaxy collection list:*)",
+      "Bash(ansible-galaxy role list:*)",
+      "Bash(ansible-galaxy search:*)",
       "Bash(aws s3 ls:*)"
     ],
     "deny": [
@@ -82,6 +85,10 @@
       "Read(**/*vault*)",
       "Read(**/group_vars/**/vault*)",
       "Read(**/host_vars/**/vault*)",
+      "Read(**/.vault_pass)",
+      "Read(**/.vault-pass*)",
+      "Read(**/vault_password*)",
+      "Read(**/.ansible_vault_password)",
       "Bash(rm:*)",
       "Bash(sudo:*)",
       "Bash(curl:*)",
@@ -112,6 +119,9 @@
       "Bash(ansible:*)",
       "Bash(ansible-pull:*)",
       "Bash(ansible-vault:*)",
+      "Bash(ansible-galaxy install:*)",
+      "Bash(ansible-galaxy collection install:*)",
+      "Bash(ansible-galaxy role install:*)",
       "Bash(npm:*)",
       "WebFetch",
       "WebSearch"
