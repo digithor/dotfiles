@@ -25,7 +25,7 @@
   "agent": {
     "default_model": {
       "provider": "ollama",
-      "model": "glm-4.7:cloud",
+      "model": "gemini-3-flash-preview:cloud",
     },
     "enable_feedback": false,
   },
