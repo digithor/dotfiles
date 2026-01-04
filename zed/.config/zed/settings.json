@@ -27,6 +27,14 @@
       "provider": "ollama",
       "model": "gemini-3-flash-preview:cloud",
     },
+    "inline_assistant_model": {
+      "provider": "ollama",
+      "model": "devstral-2:123b-cloud",
+    },
+    "commit_message_model": {
+      "provider": "ollama",
+      "model": "gemini-3-flash-preview:cloud",
+    },
     "enable_feedback": false,
   },
   "features": {
