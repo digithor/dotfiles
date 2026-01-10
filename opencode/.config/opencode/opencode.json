@@ -43,6 +43,11 @@
       "type": "remote",
       "url": "https://mcp.grep.app",
       "enabled": true
+    },
+    "aws-knowledge": {
+      "type": "remote",
+      "url": "https://knowledge-mcp.global.api.aws",
+      "enabled": true
     }
   }
 }
