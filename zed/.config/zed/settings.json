@@ -23,6 +23,12 @@
       "url": "https://knowledge-mcp.global.api.aws",
       "enabled": true,
     },
+    "gh_grep": {
+      "settings": {},
+
+      "url": "https://mcp.grep.app",
+      "enabled": true,
+    },
   },
   "auto_update_extensions": {
     "harper": true,
