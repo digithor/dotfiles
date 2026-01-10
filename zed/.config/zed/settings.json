@@ -17,6 +17,12 @@
       },
       "enabled": true,
     },
+    "AWS-Knowledge": {
+      "settings": {},
+
+      "url": "https://knowledge-mcp.global.api.aws",
+      "enabled": true,
+    },
   },
   "auto_update_extensions": {
     "harper": true,
