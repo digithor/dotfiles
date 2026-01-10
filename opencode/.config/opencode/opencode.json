@@ -32,14 +32,11 @@
   },
   "mcp": {
     "context7": {
-      "type": "local",
-      "command": [
-        "bunx",
-        "-y",
-        "@upstash/context7-mcp@latest",
-        "--api-key",
-        "YOUR_API_KEY"
-      ],
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      },
       "enabled": true
     },
     "gh_grep": {
