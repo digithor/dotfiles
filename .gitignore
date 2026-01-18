@@ -7,4 +7,4 @@ k9s/.config/k9s/clusters/
 k9s/.config/k9s/screen-dumps/
 yazi/.config/yazi/flavors/
 yazi/.config/yazi/plugins/
-**/package.toml
+yazi/.config/yazi/package.toml
