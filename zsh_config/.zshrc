@@ -76,7 +76,7 @@ zinit wait lucid as"completion" for \
     OMZP::httpie/_httpie
 
 # Load custom plugins
-zinit ice wait lucid multisrc"(k8sgpt|kafkactl|kubectl-argo-rollouts|popeye|pulumi|codex).plugin.zsh"
+zinit ice wait lucid multisrc"(k8sgpt|kafkactl|kubectl-argo-rollouts|popeye|pulumi|codex|goose).plugin.zsh"
 zinit load "$CUSTOM_ZSH_CONFIG/plugins"
 
 # Add clompletions to fpath
