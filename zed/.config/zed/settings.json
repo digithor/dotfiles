@@ -7,8 +7,13 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "agent_servers": {
+    "github-copilot": {
+      "type": "registry",
+    },
+  },
   "git_panel": {
-    "tree_view": true
+    "tree_view": true,
   },
   "context_servers": {
     "Context7": {
@@ -39,22 +44,27 @@
   "agent": {
     "default_model": {
       "provider": "ollama",
-      "model": "glm-4.7:cloud",
+      "model": "glm-5:cloud",
     },
     "inline_assistant_model": {
       "provider": "ollama",
-      "model": "devstral-2:123b-cloud",
+      "model": "glm-5:cloud",
     },
     "commit_message_model": {
       "provider": "ollama",
-      "model": "gemini-3-flash-preview:cloud",
+      "model": "glm-5:cloud",
     },
     "enable_feedback": false,
   },
-  "features": {
-    "edit_prediction_provider": "zed",
-  },
   "edit_predictions": {
+    "provider": "copilot",
+    "ollama": {
+      "max_output_tokens": 256000,
+      "model": "glm-5:cloud",
+    },
+    "sweep": {
+      "privacy_mode": true,
+    },
     "disabled_globs": [
       "**/.env*",
       "**/*.pem",
