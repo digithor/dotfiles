@@ -57,7 +57,7 @@
     "enable_feedback": false,
   },
   "edit_predictions": {
-    "provider": "sweep",
+    "provider": "copilot",
     "ollama": {
       "max_output_tokens": 256000,
       "model": "glm-5:cloud",
