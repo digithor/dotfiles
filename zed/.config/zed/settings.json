@@ -47,8 +47,8 @@
       "model": "glm-5:cloud",
     },
     "inline_assistant_model": {
-      "provider": "ollama",
-      "model": "glm-5:cloud",
+      "provider": "copilot_chat",
+      "model": "claude-haiku-4.5",
     },
     "commit_message_model": {
       "provider": "ollama",
