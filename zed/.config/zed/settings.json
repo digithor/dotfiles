@@ -25,7 +25,7 @@
       },
       "enabled": true,
     },
-    "AWS-Knowledge": {
+    "aws-knowledge": {
       "settings": {},
 
       "url": "https://knowledge-mcp.global.api.aws",
@@ -35,6 +35,12 @@
       "settings": {},
 
       "url": "https://mcp.grep.app",
+      "enabled": true,
+    },
+    "deepwiki": {
+      "settings": {},
+
+      "url": "https://mcp.deepwiki.com/mcp",
       "enabled": true,
     },
   },
