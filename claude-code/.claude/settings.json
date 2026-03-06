@@ -126,13 +126,20 @@
     "terraform-module-generation@hashicorp": true,
     "terraform-provider-development@hashicorp": true,
     "packer-builders@hashicorp": true,
-    "packer-hcp@hashicorp": true
+    "packer-hcp@hashicorp": true,
+    "astral@astral-sh": true
   },
   "extraKnownMarketplaces": {
     "hashicorp": {
       "source": {
         "source": "github",
         "repo": "hashicorp/agent-skills"
+      }
+    },
+    "astral-sh": {
+      "source": {
+        "source": "github",
+        "repo": "astral-sh/claude-code-plugins"
       }
     }
   },
