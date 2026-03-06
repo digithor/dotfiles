@@ -121,7 +121,20 @@
     "plugin-dev@claude-plugins-official": true,
     "security-guidance@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
-    "swift-lsp@claude-plugins-official": true
+    "swift-lsp@claude-plugins-official": true,
+    "terraform-code-generation@hashicorp": true,
+    "terraform-module-generation@hashicorp": true,
+    "terraform-provider-development@hashicorp": true,
+    "packer-builders@hashicorp": true,
+    "packer-hcp@hashicorp": true
+  },
+  "extraKnownMarketplaces": {
+    "hashicorp": {
+      "source": {
+        "source": "github",
+        "repo": "hashicorp/agent-skills"
+      }
+    }
   },
   "sandbox": {
     "enabled": true,
