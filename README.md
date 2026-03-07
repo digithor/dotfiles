@@ -11,6 +11,7 @@ dotfiles/
 ├── claude-code/   # Claude Code settings & skills
 ├── fsh/           # fast-syntax-highlighting theme
 ├── ghostty/       # Ghostty terminal
+├── goose/         # Goose AI agent hints
 ├── helix/         # Helix editor
 ├── k9s/           # k9s Kubernetes TUI
 ├── kitty/         # Kitty terminal
@@ -87,6 +88,7 @@ stow */
 | k9s | `k9s/.config/k9s/` |
 | fsh theme | `fsh/.config/fsh/` |
 | Claude Code | `claude-code/.claude/` |
+| Goose AI agent | `goose/.config/goose/` |
 
 ## Theme
 
