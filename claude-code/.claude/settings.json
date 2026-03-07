@@ -127,20 +127,37 @@
     "terraform-provider-development@hashicorp": true,
     "packer-builders@hashicorp": true,
     "packer-hcp@hashicorp": true,
-    "astral@astral-sh": true
+    "astral@astral-sh": true,
+    "deploy-on-aws@agent-plugins-for-aws": true,
+    "aws-serverless@agent-plugins-for-aws": true,
+    "superpowers@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "hashicorp": {
       "source": {
         "source": "github",
         "repo": "hashicorp/agent-skills"
-      }
+      },
+      "autoUpdate": true
     },
     "astral-sh": {
       "source": {
         "source": "github",
         "repo": "astral-sh/claude-code-plugins"
-      }
+      },
+      "autoUpdate": true
+    },
+    "agent-plugins-for-aws": {
+      "source": {
+        "source": "github",
+        "repo": "awslabs/agent-plugins"
+      },
+      "autoUpdate": true
     }
   },
   "sandbox": {
