@@ -9,10 +9,10 @@
 {
   "agent_servers": {
     "goose": {
-      "type": "registry"
+      "type": "registry",
     },
     "github-copilot-cli": {
-      "type": "registry"
+      "type": "registry",
     },
     "github-copilot": {
       "type": "registry",
@@ -64,7 +64,7 @@
     },
     "commit_message_model": {
       "provider": "ollama",
-      "model": "glm-5:cloud",
+      "model": "kimi-k2.5:cloud",
     },
     "enable_feedback": false,
   },
