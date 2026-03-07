@@ -8,6 +8,12 @@
 // from the command palette or from `Zed` application menu.
 {
   "agent_servers": {
+    "goose": {
+      "type": "registry"
+    },
+    "github-copilot-cli": {
+      "type": "registry"
+    },
     "github-copilot": {
       "type": "registry",
     },
