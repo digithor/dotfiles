@@ -8,6 +8,9 @@
 // from the command palette or from `Zed` application menu.
 {
   "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    },
     "goose": {
       "type": "registry",
     },
