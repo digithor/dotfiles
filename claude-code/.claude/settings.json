@@ -135,7 +135,15 @@
     "typescript-lsp@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
-    "lua-lsp@claude-plugins-official": true
+    "lua-lsp@claude-plugins-official": true,
+    "amazon-location-service@agent-plugins-for-aws": true,
+    "qodo-skills@claude-plugins-official": true,
+    "ruby-lsp@claude-plugins-official": true,
+    "context7-plugin@context7-marketplace": true,
+    "fullstack-dev-skills@fullstack-dev-skills": true,
+    "claude-api@anthropic-agent-skills": true,
+    "document-skills@anthropic-agent-skills": true,
+    "example-skills@anthropic-agent-skills": true
   },
   "extraKnownMarketplaces": {
     "hashicorp": {
@@ -156,6 +164,27 @@
       "source": {
         "source": "github",
         "repo": "awslabs/agent-plugins"
+      },
+      "autoUpdate": true
+    },
+    "context7-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "upstash/context7"
+      },
+      "autoUpdate": true
+    },
+    "fullstack-dev-skills": {
+      "source": {
+        "source": "github",
+        "repo": "jeffallan/claude-skills"
+      },
+      "autoUpdate": true
+    },
+    "anthropic-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/skills"
       },
       "autoUpdate": true
     }
