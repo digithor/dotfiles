@@ -143,7 +143,10 @@
     "fullstack-dev-skills@fullstack-dev-skills": true,
     "claude-api@anthropic-agent-skills": true,
     "document-skills@anthropic-agent-skills": true,
-    "example-skills@anthropic-agent-skills": true
+    "example-skills@anthropic-agent-skills": true,
+    "commit-commands@claude-plugins-official": true,
+    "agent-sdk-dev@claude-plugins-official": true,
+    "linear@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "hashicorp": {
