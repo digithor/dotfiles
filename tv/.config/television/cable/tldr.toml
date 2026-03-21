@@ -1,0 +1,10 @@
+[metadata]
+name = "tldr"
+description = "Search tldr cheatsheet pages"
+requirements = ["tldr"]
+
+[source]
+command = "tldr --list"
+
+[preview]
+command = "tldr {}"
