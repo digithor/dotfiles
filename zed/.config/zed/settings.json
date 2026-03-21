@@ -9,7 +9,7 @@
 {
   "agent_servers": {
     "claude-acp": {
-      "type": "registry"
+      "type": "registry",
     },
     "goose": {
       "type": "registry",
