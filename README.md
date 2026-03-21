@@ -18,6 +18,7 @@ dotfiles/
 ├── neovim/        # Neovim (lazy.nvim)
 ├── starship/      # Starship prompt
 ├── tmux/          # tmux
+├── tv/            # Television fuzzy finder
 ├── vim/           # Vim
 ├── wezterm/       # WezTerm terminal
 ├── yazi/          # Yazi file manager
@@ -59,7 +60,7 @@ stow */
 - **OMZ libraries**: git, history, key-bindings, directories, clipboard, grep
 - **Plugins**: git, eza, fzf, zoxide, aws, gcloud, docker, minikube, fluxcd, rust, asdf, 1password, tailscale, and more
 - **Completion plugins**: fzf-tab, zsh-completions, fast-syntax-highlighting, zsh-autopair, zsh-you-should-use
-- **Custom plugins**: k8sgpt, kafkactl, kubectl-argo-rollouts, popeye, pulumi, codex, goose
+- **Custom plugins**: argocd, goose, k8sgpt, kafkactl, kubectl-argo-rollouts, popeye, pulumi, television
 
 ### Editors
 
@@ -84,6 +85,7 @@ stow */
 |------|-------------|
 | Starship prompt | `starship/.config/starship.toml` |
 | tmux | `tmux/.tmux.conf` |
+| Television fuzzy finder | `tv/.config/television/` |
 | Yazi file manager | `yazi/.config/yazi/` |
 | k9s | `k9s/.config/k9s/` |
 | fsh theme | `fsh/.config/fsh/` |
