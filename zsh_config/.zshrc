@@ -76,10 +76,10 @@ zinit wait lucid as"completion" for \
     OMZP::httpie/_httpie
 
 # Load custom plugins
-zinit ice wait lucid multisrc"(k8sgpt|kafkactl|kubectl-argo-rollouts|popeye|pulumi|goose).plugin.zsh"
+zinit ice wait lucid multisrc"(argocd|k8sgpt|kafkactl|kubectl-argo-rollouts|popeye|pulumi|goose|television).plugin.zsh"
 zinit load "$CUSTOM_ZSH_CONFIG/plugins"
 
-# Add clompletions to fpath
+# Add completions to fpath
 zinit add-fpath "$ZSH_CACHE_DIR/completions"
 
 zinit wait lucid for \
@@ -127,7 +127,28 @@ zstyle ':fzf-tab:*' show-group brief
 zstyle ':fzf-tab:*' single-group color header
 zstyle ':fzf-tab:*' switch-group '<' '>'
 zstyle ':completion:*' special-dirs true
+
+# Previews: directories
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+
+# Previews: files (bat for text, eza fallback for directories)
+zstyle ':fzf-tab:complete:(bat|cat|less|diff|nvim|vim|nano|head|tail|wc|cp|mv|rm|source|.):argument-rest' \
+    fzf-preview 'bat --color=always --style=numbers $realpath 2>/dev/null || eza -1 --color=always $realpath'
+
+# Previews: environment variables
+zstyle ':fzf-tab:complete:(export|unset|printenv):argument-1' \
+    fzf-preview 'printenv $word'
+
+# Previews: kill — show process details
+zstyle ':fzf-tab:complete:(kill|killall):argument-rest' \
+    fzf-preview '[[ $group == "[process ID]" ]] && ps -p $word -o command,pid,ppid,%cpu,%mem | head -5'
+zstyle ':fzf-tab:complete:(kill|killall):argument-rest' fzf-flags '--preview-window=down:4:wrap'
+
+# Previews: git — branches, commits, and staged files
+zstyle ':fzf-tab:complete:git-(add|diff|restore|checkout|reset|switch):*' \
+    fzf-preview 'git diff --stat HEAD $word 2>/dev/null || git log --oneline --graph --color=always $word 2>/dev/null | head -20'
+zstyle ':fzf-tab:complete:git-(log|show):*' \
+    fzf-preview 'git show --stat --color=always $word 2>/dev/null | head -30'
 
 # See hidden files
 setopt glob_dots
