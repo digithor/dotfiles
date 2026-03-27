@@ -72,7 +72,7 @@
     "enable_feedback": false,
   },
   "edit_predictions": {
-    "provider": "copilot",
+    "provider": "zed",
     "ollama": {
       "max_output_tokens": 256000,
       "model": "glm-5:cloud",
