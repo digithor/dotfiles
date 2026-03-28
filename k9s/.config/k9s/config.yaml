@@ -28,15 +28,16 @@ k9s:
       namespaces: []
       labels: {}
   logger:
-    tail: 100
+    tail: 1000
     buffer: 5000
     sinceSeconds: -1
-    textWrap: false
+    textWrap: true
     showTime: false
+    fullScreen: true
   thresholds:
     cpu:
       critical: 90
-      warn: 70
+      warn: 80
     memory:
       critical: 90
-      warn: 70
+      warn: 80
