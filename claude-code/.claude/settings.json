@@ -122,13 +122,10 @@
     "security-guidance@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
     "swift-lsp@claude-plugins-official": true,
-    "terraform-code-generation@hashicorp": true,
-    "terraform-module-generation@hashicorp": true,
     "terraform-provider-development@hashicorp": true,
     "packer-builders@hashicorp": true,
     "packer-hcp@hashicorp": true,
     "astral@astral-sh": true,
-    "deploy-on-aws@agent-plugins-for-aws": true,
     "aws-serverless@agent-plugins-for-aws": true,
     "superpowers@claude-plugins-official": true,
     "code-review@claude-plugins-official": true,
@@ -136,7 +133,6 @@
     "skill-creator@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
     "lua-lsp@claude-plugins-official": true,
-    "amazon-location-service@agent-plugins-for-aws": true,
     "qodo-skills@claude-plugins-official": true,
     "ruby-lsp@claude-plugins-official": true,
     "context7-plugin@context7-marketplace": true,
@@ -146,7 +142,12 @@
     "example-skills@anthropic-agent-skills": true,
     "commit-commands@claude-plugins-official": true,
     "agent-sdk-dev@claude-plugins-official": true,
-    "linear@claude-plugins-official": true
+    "superpowers-optimized@claude-community": true,
+    "terraform-lsp@claude-community": true,
+    "data@claude-plugins-official": true,
+    "mcp-server-dev@claude-plugins-official": true,
+    "cto-toolkit@claude-community": true,
+    "pr-review-toolkit@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "hashicorp": {
@@ -188,6 +189,13 @@
       "source": {
         "source": "github",
         "repo": "anthropics/skills"
+      },
+      "autoUpdate": true
+    },
+    "claude-community": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-community"
       },
       "autoUpdate": true
     }
