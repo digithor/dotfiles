@@ -15,10 +15,6 @@ if [ -f "$HOME/.local/bin/env" ]; then
     . "$HOME/.local/bin/env"
 fi
 
-if [ -d "${KREW_ROOT:-$HOME/.krew}/bin" ]; then
-    export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-fi
-
 case "$(uname)" in
 Darwin)
     export PATH="$HOMEBREW_PREFIX/opt/curl/bin:$PATH"
