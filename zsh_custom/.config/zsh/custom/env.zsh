@@ -15,6 +15,10 @@ if [ -f "$HOME/.local/bin/env" ]; then
     . "$HOME/.local/bin/env"
 fi
 
+if (($ + command[dyff])); then
+    export KUBECTL_EXTERNAL_DIFF="dyff between --omit-header --set-exit-code"
+fi
+
 case "$(uname)" in
 Darwin)
     export PATH="$HOMEBREW_PREFIX/opt/curl/bin:$PATH"
