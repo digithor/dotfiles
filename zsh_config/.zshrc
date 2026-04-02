@@ -60,13 +60,11 @@ zinit wait lucid for \
     OMZP::ssh \
     OMZP::docker \
     OMZP::minikube \
-    OMZP::fluxcd \
     OMZP::rust \
     OMZP::gem \
-    OMZP::asdf \
+    OMZP::mise \
     OMZP::1password \
     OMZP::tailscale \
-    OMZP::web-search \
     OMZP::colored-man-pages
 
 # Load completions
