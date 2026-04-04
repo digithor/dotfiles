@@ -89,6 +89,10 @@ zinit wait lucid for \
     MichaelAquilina/zsh-you-should-use \
     zdharma-continuum/fast-syntax-highlighting
 
+# Word characters
+WORDCHARS="${WORDCHARS/\//}"
+WORDCHARS="${WORDCHARS/-/}"
+
 # Key Bindings
 bindkey '\e[A' history-beginning-search-backward
 bindkey '\e[B' history-beginning-search-forward

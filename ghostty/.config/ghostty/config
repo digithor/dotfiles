@@ -6,3 +6,4 @@ window-width = 168
 window-height = 48
 copy-on-select = clipboard
 cursor-invert-fg-bg = true
+macos-option-as-alt = true
