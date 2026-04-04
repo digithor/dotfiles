@@ -91,7 +91,6 @@ zinit wait lucid for \
 
 # Word characters
 WORDCHARS="${WORDCHARS/\//}"
-WORDCHARS="${WORDCHARS/-/}"
 
 # Key Bindings
 bindkey '\e[A' history-beginning-search-backward
