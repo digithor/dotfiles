@@ -28,10 +28,7 @@
     "Context7": {
       "settings": {},
 
-      "url": "https://mcp.context7.com/mcp",
-      "headers": {
-        "CONTEXT7_API_KEY": "API_KEY",
-      },
+      "url": "https://mcp.context7.com/mcp/oauth",
       "enabled": true,
     },
     "aws-knowledge": {
