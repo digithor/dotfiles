@@ -59,7 +59,7 @@
   "agent": {
     "default_model": {
       "provider": "ollama",
-      "model": "qwen3.5:397b-cloud",
+      "model": "gemma4:31b-cloud",
     },
     "inline_assistant_model": {
       "provider": "copilot_chat",
@@ -67,7 +67,7 @@
     },
     "commit_message_model": {
       "provider": "ollama",
-      "model": "qwen3.5:397b-cloud",
+      "model": "gemma4:31b-cloud",
     },
     "enable_feedback": false,
   },
