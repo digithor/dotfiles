@@ -6,7 +6,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 # Load zinit completions
 autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
+((${+_comps})) && _comps[zinit]=_zinit
 
 # Load OMZ core library
 zinit for \
@@ -81,9 +81,9 @@ zinit load "$CUSTOM_ZSH_CONFIG/plugins"
 zinit add-fpath "$ZSH_CACHE_DIR/completions"
 
 zinit wait lucid for \
-  blockf atpull"zinit creinstall -q ." \
+    blockf atpull"zinit creinstall -q ." \
     zsh-users/zsh-completions \
-  atinit"zicompinit; zicdreplay" \
+    atinit"zicompinit; zicdreplay" \
     Aloxaf/fzf-tab \
     hlissner/zsh-autopair \
     MichaelAquilina/zsh-you-should-use \
@@ -91,6 +91,7 @@ zinit wait lucid for \
 
 # Word characters
 WORDCHARS="${WORDCHARS/\//}"
+WORDCHARS="${WORDCHARS/./}"
 
 # Key Bindings
 bindkey '\e[A' history-beginning-search-backward
