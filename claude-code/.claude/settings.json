@@ -147,7 +147,8 @@
     "data@claude-plugins-official": true,
     "mcp-server-dev@claude-plugins-official": true,
     "cto-toolkit@claude-community": true,
-    "pr-review-toolkit@claude-plugins-official": true
+    "pr-review-toolkit@claude-plugins-official": true,
+    "mempalace@mempalace": true
   },
   "extraKnownMarketplaces": {
     "hashicorp": {
@@ -196,6 +197,13 @@
       "source": {
         "source": "github",
         "repo": "anthropics/claude-plugins-community"
+      },
+      "autoUpdate": true
+    },
+    "mempalace": {
+      "source": {
+        "source": "github",
+        "repo": "milla-jovovich/mempalace"
       },
       "autoUpdate": true
     }
