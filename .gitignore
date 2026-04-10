@@ -9,5 +9,9 @@ yazi/.config/yazi/flavors/
 yazi/.config/yazi/plugins/
 yazi/.config/yazi/package.toml
 
+# Ignore rtk-ai/rtk
+rtk-rewrite.sh
+.rtk-hook.sha256
+
 # AI assistant artifacts
 context-snapshot.json
