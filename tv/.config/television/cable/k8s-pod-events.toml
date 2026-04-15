@@ -1,0 +1,44 @@
+[metadata]
+name = "k8s-pod-events"
+description = '''List and preview Pod Events in a Kubernetes Cluster.
+
+The first source lists only from the current namespace, while the second lists from all.
+
+Keybindings
+
+Press `ctrl-w` to watch live events for the selected Pod.
+Press `ctrl-y` to show events with Warning type only.
+'''
+requirements = ["kubectl"]
+
+[source]
+command = [
+  '''
+  kubectl get pods -o go-template --template '{{range .items}}{{.metadata.namespace}} {{.metadata.name}}{{"\n"}}{{end}}'
+  ''',
+  '''
+  kubectl get pods -o go-template --template '{{range .items}}{{.metadata.namespace}} {{.metadata.name}}{{"\n"}}{{end}}' --all-namespaces
+  ''',
+]
+output = "{1}"
+
+[preview]
+command = "kubectl events -n {0} --for pod/{1}"
+
+[ui]
+layout = "portrait"
+preview_panel = { size = 60 }
+
+[keybindings]
+ctrl-w = "actions:watch"
+ctrl-y = "actions:warnings"
+
+[actions.watch]
+description = "Watch live events for the selected Pod"
+command = "kubectl events -n {0} --for pod/{1} --watch"
+mode = "execute"
+
+[actions.warnings]
+description = "Show Warning events only for the selected Pod"
+command = "kubectl events -n {0} --for pod/{1} --types=Warning"
+mode = "execute"

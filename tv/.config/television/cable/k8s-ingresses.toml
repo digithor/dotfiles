@@ -1,0 +1,45 @@
+[metadata]
+name = "k8s-ingresses"
+description = '''List and preview Ingresses in a Kubernetes Cluster.
+
+The first source lists only from the current namespace, while the second lists from all.
+The source list shows namespace, name, and hostname for easy filtering by domain.
+
+Keybindings
+
+Press `ctrl-o` to open the Ingress host URL in the browser.
+Press `ctrl-d` to delete the selected Ingress.
+'''
+requirements = ["kubectl"]
+
+[source]
+command = [
+  '''
+  kubectl get ingress -o go-template --template '{{range .items}}{{.metadata.namespace}} {{.metadata.name}} {{range .spec.rules}}{{.host}}{{end}}{{"\n"}}{{end}}'
+  ''',
+  '''
+  kubectl get ingress -o go-template --template '{{range .items}}{{.metadata.namespace}} {{.metadata.name}} {{range .spec.rules}}{{.host}}{{end}}{{"\n"}}{{end}}' --all-namespaces
+  ''',
+]
+output = "{1}"
+
+[preview]
+command = "kubectl describe ingress -n {0} {1}"
+
+[ui]
+layout = "portrait"
+preview_panel = { size = 60 }
+
+[keybindings]
+ctrl-o = "actions:open"
+ctrl-d = "actions:delete"
+
+[actions.open]
+description = "Open the Ingress host URL in the browser"
+command = "open https://{2}"
+mode = "execute"
+
+[actions.delete]
+description = "Delete the selected Ingress"
+command = "kubectl delete ingress -n {0} {1}"
+mode = "execute"

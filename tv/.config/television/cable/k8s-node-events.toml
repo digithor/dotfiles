@@ -1,0 +1,39 @@
+[metadata]
+name = "k8s-node-events"
+description = '''List and preview Node Events in a Kubernetes Cluster.
+
+Keybindings
+
+Press `ctrl-w` to watch live events for the selected Node.
+Press `ctrl-y` to show Warning events only for the selected Node.
+'''
+requirements = ["kubectl"]
+
+[source]
+command = [
+  '''
+  kubectl get nodes -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}'
+  ''',
+]
+output = "{0}"
+
+[preview]
+command = "kubectl events --for node/{0}"
+
+[ui]
+layout = "portrait"
+preview_panel = { size = 60 }
+
+[keybindings]
+ctrl-w = "actions:watch"
+ctrl-y = "actions:warnings"
+
+[actions.watch]
+description = "Watch live events for the selected Node"
+command = "kubectl events --for node/{0} --watch"
+mode = "execute"
+
+[actions.warnings]
+description = "Show Warning events only for the selected Node"
+command = "kubectl events --for node/{0} --types=Warning"
+mode = "execute"

@@ -1,0 +1,46 @@
+[metadata]
+name = "k8s-nodes"
+description = '''List and preview Nodes in a Kubernetes Cluster.
+
+Keybindings
+
+Press `ctrl-c` to cordon the selected Node.
+Press `ctrl-u` to uncordon the selected Node.
+Press `ctrl-d` to drain the selected Node.
+'''
+requirements = ["kubectl"]
+
+[source]
+command = [
+  '''
+  kubectl get nodes -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}'
+  ''',
+]
+output = "{0}"
+
+[preview]
+command = "kubectl describe node/{0}"
+
+[ui]
+layout = "portrait"
+preview_panel = { size = 60 }
+
+[keybindings]
+ctrl-c = "actions:cordon"
+ctrl-u = "actions:uncordon"
+ctrl-d = "actions:drain"
+
+[actions.cordon]
+description = "Cordon the selected Node (mark as unschedulable)"
+command = "kubectl cordon {0}"
+mode = "execute"
+
+[actions.uncordon]
+description = "Uncordon the selected Node (mark as schedulable)"
+command = "kubectl uncordon {0}"
+mode = "execute"
+
+[actions.drain]
+description = "Drain the selected Node (evict all pods)"
+command = "kubectl drain {0} --ignore-daemonsets --delete-emptydir-data"
+mode = "execute"

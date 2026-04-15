@@ -1,0 +1,54 @@
+[metadata]
+name = "k8s-namespaces"
+description = '''List and preview Namespaces with Resource Quotas in a Kubernetes Cluster.
+
+The source list shows each namespace name and its current status (Active/Terminating).
+
+Keybindings
+
+Press `ctrl-q` to show detailed Resource Quotas for the selected Namespace.
+Press `ctrl-l` to show LimitRanges for the selected Namespace.
+Press `ctrl-d` to delete the selected Namespace.
+'''
+requirements = ["kubectl"]
+
+[source]
+command = [
+  '''
+  kubectl get namespaces -o go-template --template '{{range .items}}{{.metadata.name}} {{.status.phase}}{{"\n"}}{{end}}'
+  ''',
+]
+output = "{0}"
+
+[preview]
+command = '''
+  echo "=== Namespace ===" && \
+  kubectl describe namespace {0} && \
+  echo "" && \
+  echo "=== Resource Quotas ===" && \
+  kubectl get resourcequota -n {0} -o wide 2>/dev/null || echo "No resource quotas defined"
+'''
+
+[ui]
+layout = "portrait"
+preview_panel = { size = 65 }
+
+[keybindings]
+ctrl-q = "actions:quotas"
+ctrl-l = "actions:limitranges"
+ctrl-d = "actions:delete"
+
+[actions.quotas]
+description = "Show Resource Quotas for the selected Namespace"
+command = "kubectl get resourcequota -n {0} -o yaml"
+mode = "execute"
+
+[actions.limitranges]
+description = "Show LimitRanges for the selected Namespace"
+command = "kubectl get limitrange -n {0} -o wide"
+mode = "execute"
+
+[actions.delete]
+description = "Delete the selected Namespace"
+command = "kubectl delete namespace {0}"
+mode = "execute"
