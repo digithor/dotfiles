@@ -4,7 +4,9 @@ format = """
 [](surface0)\
 $os\
 $username\
-[](bg:peach fg:surface0)\
+[](bg:red fg:surface0)\
+$shell\
+[](bg:peach fg:red)\
 $directory\
 [](fg:peach bg:green)\
 $git_branch\
@@ -110,6 +112,15 @@ show_always = true
 style_user = "bg:surface0 fg:text"
 style_root = "bg:surface0 fg:text"
 format = '[ $user ]($style)'
+
+[shell]
+disabled = false
+style = "bg:red fg:surface0"
+format = '[ $indicator ]($style)'
+zsh_indicator = ' zsh'
+bash_indicator = ' bash'
+fish_indicator = ' fish'
+nu_indicator = ' nu'
 
 [directory]
 style = "fg:mantle bg:peach"
