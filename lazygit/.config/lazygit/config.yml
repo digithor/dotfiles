@@ -1,0 +1,4 @@
+git:
+  pagers:
+    - useExternalDiffGitConfig: true
+  parseEmoji: true

@@ -15,6 +15,7 @@ dotfiles/
 ├── helix/         # Helix editor
 ├── k9s/           # k9s Kubernetes TUI
 ├── kitty/         # Kitty terminal
+├── lazygit/       # Lazygit TUI git client
 ├── neovim/        # Neovim (lazy.nvim)
 ├── nushell/       # Nushell
 ├── starship/      # Starship prompt
@@ -93,6 +94,7 @@ stow */
 | Claude Code | `claude-code/.claude/` |
 | Goose AI agent | `goose/.config/goose/` |
 | Nushell | `nushell/.config/nushell/` |
+| Lazygit | `lazygit/.config/lazygit/config.yml` |
 
 ## Theme
 
