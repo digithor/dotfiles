@@ -16,6 +16,7 @@ dotfiles/
 ├── k9s/           # k9s Kubernetes TUI
 ├── kitty/         # Kitty terminal
 ├── neovim/        # Neovim (lazy.nvim)
+├── nushell/       # Nushell
 ├── starship/      # Starship prompt
 ├── tmux/          # tmux
 ├── tv/            # Television fuzzy finder
@@ -60,7 +61,7 @@ stow */
 - **OMZ libraries**: git, history, key-bindings, directories, clipboard, grep
 - **Plugins**: git, eza, fzf, zoxide, aws, gcloud, docker, minikube, fluxcd, rust, asdf, 1password, tailscale, and more
 - **Completion plugins**: fzf-tab, zsh-completions, fast-syntax-highlighting, zsh-autopair, zsh-you-should-use
-- **Custom plugins**: argocd, goose, k8sgpt, kafkactl, kubectl-argo-rollouts, popeye, pulumi, television
+- **Custom plugins**: argocd, goose, k8sgpt, kafkactl, kubectl-argo-rollouts, popeye, pulumi, sem-cli, television, tenv
 
 ### Editors
 
@@ -91,6 +92,7 @@ stow */
 | fsh theme | `fsh/.config/fsh/` |
 | Claude Code | `claude-code/.claude/` |
 | Goose AI agent | `goose/.config/goose/` |
+| Nushell | `nushell/.config/nushell/` |
 
 ## Theme
 
