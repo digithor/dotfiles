@@ -54,6 +54,7 @@
     "harper": true,
   },
   "agent": {
+    "use_modifier_to_send": true,
     "default_model": {
       "provider": "ollama",
       "model": "gemma4:31b-cloud",
@@ -63,19 +64,17 @@
       "model": "claude-haiku-4.5",
     },
     "commit_message_model": {
-      "provider": "ollama",
-      "model": "gemma4:31b-cloud",
+      "provider": "copilot_chat",
+      "model": "claude-haiku-4.5",
     },
     "enable_feedback": false,
   },
   "edit_predictions": {
     "provider": "copilot",
     "ollama": {
+      "prompt_format": "infer",
       "max_output_tokens": 256000,
-      "model": "glm-5:cloud",
-    },
-    "sweep": {
-      "privacy_mode": true,
+      "model": "gemma4:31b-cloud",
     },
     "disabled_globs": [
       "**/.env*",
