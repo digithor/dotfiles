@@ -8,6 +8,7 @@ Each top-level directory mirrors the home directory structure so Stow can symlin
 
 ```
 dotfiles/
+├── bash/          # Bash config (.bash_profile, .bashrc)
 ├── claude-code/   # Claude Code settings & skills
 ├── fsh/           # fast-syntax-highlighting theme
 ├── ghostty/       # Ghostty terminal
@@ -25,8 +26,7 @@ dotfiles/
 ├── wezterm/       # WezTerm terminal
 ├── yazi/          # Yazi file manager
 ├── zed/           # Zed editor
-├── zsh_config/    # Zsh entrypoints (.zshrc, .zshenv, .zprofile)
-└── zsh_custom/    # Custom Zsh plugins & env config
+└── zsh/           # Zsh config (.zshrc, .zshenv, .zprofile, custom plugins)
 ```
 
 ## Setup
@@ -48,7 +48,7 @@ cd ~/.dotfiles
 # Symlink individual configs
 stow ghostty
 stow neovim
-stow zsh_config zsh_custom
+stow zsh
 
 # Or symlink everything at once
 stow */
