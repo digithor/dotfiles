@@ -1,2 +1,5 @@
 eval "$(starship init bash)"
-[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+if [ -f "$HOME/.local/bin/env" ]; then
+    . "$HOME/.local/bin/env"
+fi
