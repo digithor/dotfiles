@@ -13,45 +13,66 @@ return {
 			},
 			{ "folke/neodev.nvim", opts = {} },
 		},
-		config = function()
-			vim.lsp.enable("lua_ls")
-			vim.lsp.enable("terraformls")
-			vim.lsp.enable("rust_analyzer")
-			vim.lsp.enable("gopls")
-			vim.lsp.enable("ruff")
-			vim.lsp.enable("ty")
-			vim.lsp.enable("jsonls")
-			vim.lsp.config("jsonls", {
-				settings = {
-					json = {
-						schemas = require("schemastore").json.schemas(),
-						validate = { enable = true },
-					},
-				},
-			})
-			vim.lsp.enable("yamlls")
-			vim.lsp.config("yamlls", {
-				settings = {
-					yaml = {
-						schemaStore = {
-							enable = false,
-							url = "",
+		opts = {
+			servers = {
+				lua_ls = {},
+				terraformls = {},
+				rust_analyzer = {},
+				gopls = {},
+				ruff = {},
+				ty = {},
+				jsonls = {
+					-- lazy-load schemastore when needed
+					before_init = function(_, new_config)
+						new_config.settings.json.schemas = new_config.settings.json.schemas or {}
+						vim.list_extend(new_config.settings.json.schemas, require("schemastore").json.schemas())
+					end,
+					settings = {
+						json = {
+							format = {
+								enable = true,
+							},
+							validate = { enable = true },
 						},
-						schemas = require("schemastore").json.schemas(),
 					},
 				},
-			})
-			vim.lsp.enable("ansiblels")
-			vim.lsp.enable("denols")
-			vim.lsp.enable("tailwindcss")
-			vim.lsp.enable("solargraph")
-			vim.lsp.enable("ts_ls")
-			vim.lsp.enable("tflint")
-			vim.lsp.enable("bashls")
-			vim.lsp.enable("eslint")
-			vim.lsp.enable("harper_ls")
-			vim.lsp.enable("markdown_oxide")
-			vim.lsp.enable("zls")
-		end,
+				yamlls = {
+					-- lazy-load schemastore when needed
+					before_init = function(_, new_config)
+						new_config.settings.yaml.schemas = vim.tbl_deep_extend(
+							"force",
+							new_config.settings.yaml.schemas or {},
+							require("schemastore").yaml.schemas()
+						)
+					end,
+					settings = {
+						redhat = { telemetry = { enabled = false } },
+						yaml = {
+							keyOrdering = false,
+							format = {
+								enable = true,
+							},
+							validate = true,
+							schemaStore = {
+								enable = false,
+								url = "",
+							},
+						},
+					},
+				},
+				ansiblels = {},
+				denols = {},
+				tailwindcss = {},
+				solargraph = {},
+				ts_ls = {},
+				tflint = {},
+				bashls = {},
+				eslint = {},
+				harper_ls = {},
+				markdown_oxide = {},
+				zls = {},
+				biome = {},
+			},
+		},
 	},
 }
