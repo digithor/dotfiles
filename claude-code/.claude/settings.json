@@ -135,7 +135,6 @@
     "lua-lsp@claude-plugins-official": true,
     "qodo-skills@claude-plugins-official": true,
     "ruby-lsp@claude-plugins-official": true,
-    "context7-plugin@context7-marketplace": true,
     "fullstack-dev-skills@fullstack-dev-skills": true,
     "claude-api@anthropic-agent-skills": true,
     "document-skills@anthropic-agent-skills": true,
@@ -172,13 +171,6 @@
       },
       "autoUpdate": true
     },
-    "context7-marketplace": {
-      "source": {
-        "source": "github",
-        "repo": "upstash/context7"
-      },
-      "autoUpdate": true
-    },
     "fullstack-dev-skills": {
       "source": {
         "source": "github",
@@ -212,9 +204,7 @@
     "enabled": true,
     "autoAllowBashIfSandboxed": true,
     "network": {
-      "allowUnixSockets": [
-        "/var/run/docker.sock"
-      ],
+      "allowUnixSockets": ["/var/run/docker.sock"],
       "allowLocalBinding": true
     },
     "excludedCommands": [
