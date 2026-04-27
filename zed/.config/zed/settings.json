@@ -60,7 +60,7 @@
     "sidebar_side": "left",
     "flexible": true,
     "dock": "left",
-    "use_modifier_to_send": true,
+    "use_modifier_to_send": false,
     "default_model": {
       "provider": "ollama",
       "model": "kimi-k2.6:cloud",
