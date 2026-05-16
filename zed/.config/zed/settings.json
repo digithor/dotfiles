@@ -19,7 +19,7 @@
   },
   "agent_servers": {
     "codex-acp": {
-      "type": "registry"
+      "type": "registry",
     },
     "claude-acp": {
       "type": "registry",
@@ -66,15 +66,15 @@
     "use_modifier_to_send": false,
     "default_model": {
       "provider": "ollama",
-      "model": "kimi-k2.6:cloud",
+      "model": "gemma4:31b-cloud",
     },
     "inline_assistant_model": {
-      "provider": "copilot_chat",
-      "model": "claude-haiku-4.5",
+      "provider": "ollama",
+      "model": "gemma4:31b-cloud",
     },
     "commit_message_model": {
-      "provider": "copilot_chat",
-      "model": "claude-haiku-4.5",
+      "provider": "ollama",
+      "model": "gemma4:31b-cloud",
     },
     "enable_feedback": false,
   },
@@ -84,7 +84,7 @@
       "api_url": "http://localhost:11434",
       "prompt_format": "infer",
       "max_output_tokens": 256000,
-      "model": "kimi-k2.6:cloud",
+      "model": "gemma4:31b-cloud",
     },
     "disabled_globs": [
       "**/.env*",
