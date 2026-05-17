@@ -52,7 +52,6 @@ zinit snippet "$ZINIT_HOME/_zinit"
 # Load OMZ plugins in turbo mode
 zinit wait lucid for \
     OMZP::git \
-    OMZP::eza \
     OMZP::fzf \
     OMZP::zoxide \
     OMZP::aws \
