@@ -10,6 +10,7 @@ Each top-level directory mirrors the home directory structure so Stow can symlin
 dotfiles/
 ├── bash/          # Bash config (.bash_profile, .bashrc)
 ├── claude-code/   # Claude Code settings & skills
+├── fish/          # Fish shell config
 ├── fsh/           # fast-syntax-highlighting theme
 ├── ghostty/       # Ghostty terminal
 ├── goose/         # Goose AI agent hints
@@ -19,6 +20,7 @@ dotfiles/
 ├── lazygit/       # Lazygit TUI git client
 ├── neovim/        # Neovim (lazy.nvim)
 ├── nushell/       # Nushell
+├── opencode/      # Opencode AI editor
 ├── starship/      # Starship prompt
 ├── tmux/          # tmux
 ├── tv/            # Television fuzzy finder
@@ -95,6 +97,8 @@ stow */
 | Goose AI agent | `goose/.config/goose/` |
 | Nushell | `nushell/.config/nushell/` |
 | Lazygit | `lazygit/.config/lazygit/config.yml` |
+| Fish shell | `fish/.config/fish/` |
+| Opencode AI editor | `opencode/.config/opencode/` |
 
 ## Theme
 
