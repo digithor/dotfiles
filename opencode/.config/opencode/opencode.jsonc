@@ -1,6 +1,19 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "lsp": {},
+  "lsp": {
+    "ruff": {
+      "command": ["ruff", "server"],
+      "extensions": [".py"],
+    },
+    "ty": {
+      "command": ["ty", "server"],
+      "extensions": [".py"],
+    },
+    "terraform": {
+      "command": ["terraform-ls", "serve"],
+      "extensions": [".tf", ".tfvars"],
+    },
+  },
   "formatter": {},
   "permission": {
     "bash": "ask",
